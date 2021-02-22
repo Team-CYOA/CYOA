@@ -2,12 +2,12 @@
 
 const express = require('express');
 const app = express();
-const angular;
-const routes  = require('./controllers/controller');
+//const angular;
+//const routes  = require('./controllers/controller');
 const db = require('./models');
 
 // Static file serving
-app.use(express.static("public"));
+//app.use(express.static("public"));
 
 //parsing 
 
@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended: true}));
 const PORT = 3000
 
 //route
-app.use(routes);
+//app.use(routes);
 
 // sync with sql db and listen
 
