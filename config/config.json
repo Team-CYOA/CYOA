@@ -18,7 +18,7 @@
   "production": {
     "username": "root",
     "password": "yourRootPassword",
-    "use_env_variable": "DATABASE_URL",
+    "use_env_variable": "JAWSDB_URL",
     "database": "CYOA_db",
     "host": "127.0.0.1",
     "port": 3306,
