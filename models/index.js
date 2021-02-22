@@ -12,8 +12,8 @@ let sequelize;
 
 // create sequelize instance
 
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable]);
+if (config.JAWSDB_URL) {
+  sequelize = new Sequelize(process.env[config.JAWSDB_URL]);
 } else {
   sequelize = new Sequelize(
     config.database,
