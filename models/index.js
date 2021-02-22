@@ -5,7 +5,7 @@ const Sequelize = require('sequelize');
 //path to config file
 
 const basename = path.basename(module.filename);
-const env = process.env.NODE_ENV || 'development';
+const env = process.env.JAWSDB_URL || 'development';
 const config = require(`${__dirname}/../config/config.json`)[env];
 const db = {};
 let sequelize;
