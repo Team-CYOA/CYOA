@@ -5,9 +5,9 @@ const router = express.Router();
 
 // test setup
 
-router.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, '../helloworld.html'));
+// router.get("/", function(req, res) {
 
-});
 
-module.exports = router;
+// });
+
+//module.exports = router;
