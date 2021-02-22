@@ -2,6 +2,7 @@
 
 const express = require('express');
 const app = express();
+const favicon = require('express-favicon');
 //const angular;
 const routes  = require('./controllers/controller');
 const db = require('./models');
@@ -13,7 +14,7 @@ const db = require('./models');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-
+app.use(favicon(__dirname + '/public/favicon.png'));
 
 // Angular Engine Here
 
