@@ -1,0 +1,23 @@
+{
+  "name": "cyoa",
+  "version": "1.0.0",
+  "description": "Choose Your Own Adventure",
+  "main": "server.js",
+  "scripts": {
+    "test": "run test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-CYOA/CYOA.git"
+  },
+  "author": "CYOA Project Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-CYOA/CYOA/issues"
+  },
+  "homepage": "https://github.com/Team-CYOA/CYOA#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
