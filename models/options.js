@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const options = sequelize.define('encounters', {
+    const options = sequelize.define('options', {
       // expected dataType for activeChar
       optionText: DataTypes.STRING,
       consequenceText: {
@@ -22,5 +22,5 @@ module.exports = (sequelize, DataTypes) => {
       // Associating activeChar with Posts
     //};
   
-    return encounters;
+    return options;
   };
