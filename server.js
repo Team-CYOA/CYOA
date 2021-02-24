@@ -4,11 +4,11 @@ const express = require('express');
 const app = express();
 const favicon = require('express-favicon');
 //const angular;
-//const routes  = require('./controllers/controller');
+const routes  = require('./controllers/controller.js');
 const db = require('./models');
 
 // Static file serving
-//app.use(express.static("public"));
+app.use(express.static("public"));
 
 //parsing 
 
@@ -23,10 +23,11 @@ app.use(favicon(__dirname + '/public/favicon.png'));
 const PORT = 3000
 
 //route
-//app.use(routes);
+
+app.use(routes);
 
 // sync with sql db and listen
 
 db.sequelize.sync({ force: true }).then(() => {
     app.listen((process.env.PORT || PORT), () => console.log(`Listening on PORT ${PORT}`));
-  });
+});
