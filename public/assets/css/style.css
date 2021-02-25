@@ -1,0 +1,13 @@
+body {
+    background-image: url('../images/launchPage.jpg');
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+       }
+    
+    h1 {
+        font-family: 'Press Start 2P', cursive;
+        color: white;
+        text-align: center;
+    }
