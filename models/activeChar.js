@@ -15,11 +15,26 @@ module.exports = (sequelize, DataTypes) => {
   };
   activeChar.init({
     name: DataTypes.STRING,
-    hasShoes: DataTypes.BOOLEAN,
-    hasTools: DataTypes.BOOLEAN,
-    hasSpacesuit: DataTypes.BOOLEAN,
-    engineDestroyed: DataTypes.BOOLEAN,
-    canTrade: DataTypes.BOOLEAN
+    hasShoes: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
+    },
+    hasTools: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    hasSpacesuit: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    engineDestroyed: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    canTrade: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
   }, {
     sequelize,
     modelName: 'activeChar',
