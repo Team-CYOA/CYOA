@@ -7,8 +7,8 @@ const router = express.Router();
 // // GET routes HERE
 // index/splash screen
 router.get("/", function(req, res) {
-    console.log("Requesting received for index")
-    res.sendFile('index.html', { root: path.join(__dirname, '../template') })
+    console.log("Request received for index...")
+    res.render("index");
 });
 
 
