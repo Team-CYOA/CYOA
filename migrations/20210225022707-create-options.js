@@ -15,10 +15,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       consequence: {
-        type: Sequelize.STRING
+          type: Sequelize.TEXT,
+          allowNull: true
       },
       tResult: {
-        type: Sequelize.STRING
+          type: Sequelize.TEXT,
+          allowNull: true 
       },
       createdAt: {
         allowNull: false,

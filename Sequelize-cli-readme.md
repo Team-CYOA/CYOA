@@ -20,6 +20,14 @@ npx sequelize-cli db:seed:all
 
 This will migrate the seeds to the tables. Currently only the encounters table has data.
 
+To add specific seeds to your db (if you only want to update one table) run this command:
+
+npx sequelize-cli db:seed --seed <<<20210225164230-activeChars>>>
+
+Inside the arrows put the name of the seeder- just the numbers, hyphen, and table name, leave off the .js.
+
+You can edit data in the seeders however you want if you'd like to add more characters/events. 
+
 You can undo migrations with this command:
 
 npx sequelize-cli db:seed:undo:all
