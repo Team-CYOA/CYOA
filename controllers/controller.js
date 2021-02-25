@@ -40,11 +40,11 @@ router.get("/encounters/:id", function(req, res) {
 
     // find the encounter
     db.encounters.findOne({
-        id: 1
+        id: req.body.id
     }).then(encounter => {  
         console.log('found encounter', encounter)
         const encounterRender = {
-            premiseText: 'You awaken to the sounds of squealing alarms and crackling electronics. Beyond the viewport of your downed spacecraft you can see the hazy outlines of a forested alien world, slightly obscured by the smoke billowing out from your ship. A brief look at the (slightly damaged) ship computer indicates that the atmosphere outside is breathable. You just need to decide what to do next…',
+            premiseText: encounter.dataValues.encounterText,
             choices: ['choice1', 'choice2', 'choice3']
         }
         // send to handlebars
