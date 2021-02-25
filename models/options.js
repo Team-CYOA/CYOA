@@ -17,7 +17,10 @@ module.exports = (sequelize, DataTypes) => {
     optionText: DataTypes.STRING,
     nextEncounter: DataTypes.INTEGER,
     consequence: DataTypes.STRING,
-    tResult: DataTypes.STRING
+    tResult: {
+      type: DataTypes.STRING,
+      allowNull: true
+    }
   }, {
     sequelize,
     modelName: 'options',
