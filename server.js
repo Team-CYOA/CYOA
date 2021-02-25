@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 const favicon = require('express-favicon');
-//const angular;
+
 const routes  = require('./controllers/controller.js');
 const db = require('./models');
 
@@ -19,7 +19,6 @@ app.use(favicon(__dirname + '/public/favicon.png'));
 // express-handlebars
 
 const exphbs = require("express-handlebars");
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
