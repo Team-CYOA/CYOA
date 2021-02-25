@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      encounters.belongsToMany(models.options, {through: "choice"});
+      encounters.associate = models => {
+        encounters.hasMany(models.options);
+      };
     }
   };
   encounters.init({
