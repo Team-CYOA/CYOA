@@ -6,6 +6,12 @@ If the init fails, try this command:
 
 npx sequelize-cli init --force (this will override your config.json)
 
+
+**WARNING: THIS COMMAND WILL CAUSE YOUR MODELS, SEEDERS, AND MIGRATIONS TO BE DELETED. IN MOST CASES, DROPPING YOUR DB AND RUNNING THE BELOW MIGRATION AND SEED COMMANDS WILL BE SUFFICIENT TO BRING YOUR DB UP TO DATE!**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+***Standard Migration Commands***
+
 Next, edit your config.json with your local db credentials.
 
 Then, run this command to migrate:
