@@ -15,11 +15,11 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       consequence: {
-          type: DataTypes.STRING,
+          type: Sequelize.TEXT,
           allowNull: true
       },
       tResult: {
-          type: DataTypes.STRING,
+          type: Sequelize.TEXT,
           allowNull: true 
       },
       createdAt: {
