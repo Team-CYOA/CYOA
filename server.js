@@ -16,7 +16,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(favicon(__dirname + '/public/favicon.png'));
 
-// Angular Engine Here
+// express-handlebars
+
+const exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 
 // port
