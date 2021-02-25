@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "yourRootPassword",
+    "password": "crazypasswordchanged",
     "database": "CYOA_db",
     "host": "127.0.0.1",
     "port": 3306,
