@@ -1,33 +1,28 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    const activeChar = sequelize.define('activeChar', {
-      // expected dataType for activeChar
-      name: DataTypes.STRING,
-      hasShoes: {
-          type: DataTypes.BOOLEAN,
-          defaultValue: 1
-      },
-      hasTools: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: 0
-      },
-      hasSpacesuit: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: 0
-      },
-      engineDestroyed: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: 0
-      },
-      canTrade: {
-        type: DataTypes.BOOLEAN,
-        defaultValue: 0
-    },
-    });
-  
-    //associate with other tables
-    //activeChar.associate = (models) => {
-      // Associating activeChar with Posts
-    //};
-  
-    return activeChar;
+  class activeChar extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
   };
+  activeChar.init({
+    name: DataTypes.STRING,
+    hasShoes: DataTypes.BOOLEAN,
+    hasTools: DataTypes.BOOLEAN,
+    hasSpacesuit: DataTypes.BOOLEAN,
+    engineDestroyed: DataTypes.BOOLEAN,
+    canTrade: DataTypes.BOOLEAN
+  }, {
+    sequelize,
+    modelName: 'activeChar',
+  });
+  return activeChar;
+};

@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(favicon(__dirname + '/public/favicon.png'));
 
-// Angular Engine Here
+// Handlebars Engine Here
 
 
 // port
@@ -28,6 +28,6 @@ app.use(routes);
 
 // sync with sql db and listen
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: false }).then(() => {
     app.listen((process.env.PORT || PORT), () => console.log(`Listening on PORT ${PORT}`));
 });

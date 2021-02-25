@@ -1,13 +1,24 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    const pastChar = sequelize.define('pastChar', {
-      // expected dataType for activeChar
-      pastCharName: DataTypes.STRING,
-    });
-  
-    //associate with other tables
-    //activeChar.associate = (models) => {
-      // Associating activeChar with Posts
-    //};
-  
-    return pastChar;
+  class pastChar extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
   };
+  pastChar.init({
+    pastName: DataTypes.STRING,
+    result: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'pastChar',
+  });
+  return pastChar;
+};
