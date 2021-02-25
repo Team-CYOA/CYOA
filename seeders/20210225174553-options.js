@@ -2,15 +2,144 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-    */
+queryInterface.bulkInsert('options', [{
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },  
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    },
+    {
+    optionText: DataTypes.STRING,
+    nextEncounter: DataTypes.INTEGER,
+    consequence: "",
+    tResult: "",
+    createdAt: new Date(),
+    updatedAt: new Date()
+    }
+  ], {});
+
   },
 
   down: async (queryInterface, Sequelize) => {

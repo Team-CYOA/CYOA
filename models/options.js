@@ -16,9 +16,12 @@ module.exports = (sequelize, DataTypes) => {
   options.init({
     optionText: DataTypes.STRING,
     nextEncounter: DataTypes.INTEGER,
-    consequence: DataTypes.STRING,
+    consequence: {
+      type: DataTypes.TEXT,
+      allowNull: true
+    },
     tResult: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: true
     }
   }, {
