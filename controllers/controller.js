@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require('path');
 const router = express.Router();
+const db = require('../models/index.js');
 
 // need a path to the model
 
@@ -12,27 +13,43 @@ router.get("/", function(req, res) {
 });
 
 
-// initial event
-router.get("/events", function(req, res) {
-    console.log("Request received for initial Event")
-    
-    const eventRender = {
-        premiseText: 'You awaken to the sounds of squealing alarms and crackling electronics. Beyond the viewport of your downed spacecraft you can see the hazy outlines of a forested alien world, slightly obscured by the smoke billowing out from your ship. A brief look at the (slightly damaged) ship computer indicates that the atmosphere outside is breathable. You just need to decide what to do next…',
-        choices: ['choice1', 'choice2', 'choice3']
-    }
-    res.render("event", eventRender);
+// initial encounter, defaults to encounter 1
+router.get("/encounters", function(req, res) {
+    // log in node terminal
+    console.log("Request received for encounter 1")
+    // find the encounter
+    db.encounters.findOne({
+        id: 1
+    }).then(encounter => {
+        // send result to handlebars
+        console.log('found encounter', encounter)
+        const encounterRender = {
+            premiseText: encounter.dataValues.encounterText,
+            choices: ['choice1', 'choice2', 'choice3']
+        }
+        // send to handlebars
+        res.render("encounter", encounterRender);
+    })
 });
 
-// subsequent events
-router.get("/characters/:id", function(req, res) {
+// specified ID encounter
+router.get("/encounters/:id", function(req, res) {
 
+    // log in node terminal
+    console.log("Request received for Specific encounter", req.body.id)
+
+    // find the encounter
+    db.encounters.findOne({
+        id: 1
+    }).then(encounter => {  
+        console.log('found encounter', encounter)
+        const encounterRender = {
+            premiseText: 'You awaken to the sounds of squealing alarms and crackling electronics. Beyond the viewport of your downed spacecraft you can see the hazy outlines of a forested alien world, slightly obscured by the smoke billowing out from your ship. A brief look at the (slightly damaged) ship computer indicates that the atmosphere outside is breathable. You just need to decide what to do next…',
+            choices: ['choice1', 'choice2', 'choice3']
+        }
+        // send to handlebars
+        res.render("encounter", encounterRender);
+    })
 });
-
-
-// index/splash screen
-router.get("/events/:id", function(req, res) {
-
-});
-
 
 module.exports = router;
