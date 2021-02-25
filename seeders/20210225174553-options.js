@@ -78,7 +78,7 @@ queryInterface.bulkInsert('options', [{
     optionText: "Option C - You feel the creep of despair as you realize you have neither the know-how to repair your ship nor the liquidity to pay for it. You look around, realizing this forest is your new home.",
     nextEncounter: -1,
     //consequence: "",
-    tResult: "Option C - You feel the creep of despair as you realize you have neither the know-how to repair your ship nor the liquidity to pay for it. You look around, realizing this forest is your new home.",
+    tResult: "Terminal Consequence: As fortune would have it, you find a medium sized ball frequently used in team-based competitive sports involving a net and some sand. With a little creativity, and a lot of desperate isolation, you are able to establish communication with the ball, and live happily ever after.",
     createdAt: new Date(),
     updatedAt: new Date()
     },
