@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      options.associate = models => {
-        options.belongsTo(models.encounters);
-      };
+      
+      options.belongsTo(models.encounters);
+      
     }
   };
   options.init({
