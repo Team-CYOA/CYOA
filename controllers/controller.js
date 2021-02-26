@@ -1,5 +1,5 @@
-const express = require("express");
-const path = require('path');
+const express = require('express');
+// import path = require('path');
 const router = express.Router();
 const db = require('../models/index.js');
 
@@ -7,68 +7,65 @@ const db = require('../models/index.js');
 
 // // GET routes HERE
 // index/splash screen
-router.get("/", function(req, res) {
-    console.log("Request received for index...")
-    res.render("index");
+router.get('/', (req, res) => {
+  console.log('Request received for index...');
+  res.render('index');
 });
 
 // initial encounter (id = 1), render to handlebars
-router.get("/encounters", function(req, res) {
-    // log in node terminal
-      console.log("Querying encounter ID = 1")
-    db.encounters.findAll({ 
-        where: {
-          id: 1  
-        },
-        include: {
-            model: db.options,
-            encounterId: 1
-        } 
-    })
-    .then(results => {
-        let encounterObj = buildEncounter(results)
-        res.render("encounter", encounterObj)   
+router.get('/encounters', (req, res) => {
+  // log in node terminal
+  console.log('Querying encounter ID = 1');
+  db.encounters.findAll({
+    where: { id: 1 },
+    include: {
+      model: db.options,
+      encounterId: 1,
+    },
+  })
+    .then((results) => {
+      const encounterObj = buildEncounter(results);
+      res.render('encounter', encounterObj);
     });
 });
 
 // specific encounter, render to handlebars
-router.get("/encounters/:id", function(req, res) {
-    // log in node terminal
-      console.log("Querying encounter ID = ", req.params.id)
+router.get('/encounters/:id', (req, res) => {
+  // log in node terminal
+  console.log('Querying encounter ID = ', req.params.id);
 
-    db.encounters.findAll({ 
-        where: {
-          id: req.params.id 
-        },
-        include: {
-            model: db.options,
-            encounterId: req.params.id
-        } 
-    })
-    .then(results => {
-        let encounterObj = buildEncounter(results)
-        res.render("encounter", encounterObj)
+  db.encounters.findAll({
+    where: {
+      id: req.params.id,
+    },
+    include: {
+      model: db.options,
+      encounterId: req.params.id,
+    },
+  })
+    .then((results) => {
+      const encounterObj = buildEncounter(results);
+      res.render('encounter', encounterObj);
     });
 });
 
-
 // specific encounter, render to JSON
-router.get("/api/encounters/:id", function(req, res) {
-    // log in node terminal
-      console.log("Querying encounter ID = ", req.params.id)
+router.get('/api/encounters/:id', (req, res) => {
+  // log in node terminal
+  console.log('Querying encounter ID = ', req.params.id);
 
-    db.encounters.findAll({ 
-        where: {
-          id: req.params.id 
-        },
-        include: {
-            model: db.options,
-            encounterId: req.params.id
-        } 
-    })
-    .then(results => {
-        let encounterObj = buildEncounter(results)
-        res.json(encounterObj)
+  db.encounters.findAll({
+    where: {
+      id: req.params.id,
+    },
+    include: {
+      model: db.options,
+      encounterId: req.params.id,
+    },
+  })
+    .then((results) => {
+      const encounterObj = buildEncounter(results);
+      res.json(encounterObj);
     });
 });
 
@@ -93,59 +90,59 @@ function buildEncounter(results) {
 }
 
 // Get all characters, render to HTML
-router.get("/characters", function(req, res) {
-    // log in node terminal
-    console.log("Request received for initial encounter")
-    // find the encounter
+router.get('/characters', (req, res) => {
+  // log in node terminal
+  console.log('Request received for initial encounter');
+  // find the encounter
 
-    db.activeChar.findAll().then(characters => {
-        // send result to handlebars
-        console.log('Found Active Characters', characters.length)
+  db.activeChar.findAll().then((characters) => {
+    // send result to handlebars
+    console.log('Found Active Characters', characters.length);
 
-        let charArr = [];
+    const charArr = [];
 
-        characters.forEach(charObj => {
-            console.log(charObj.dataValues.name);
-            charArr.push(charObj.dataValues);
-        })
-
-        // res.render("allcharacters", {charArr});
+    characters.forEach((charObj) => {
+      console.log(charObj.dataValues.name);
+      charArr.push(charObj.dataValues);
     });
+
+    // res.render("allcharacters", {charArr});
+  });
 });
 
 // Get all characters, render to JSON
-router.get("/api/characters", function(req, res) {
-    // log in node terminal
-    console.log("Request received for initial encounter")
-    // find the encounter
+router.get('/api/characters', (req, res) => {
+  // log in node terminal
+  console.log('Request received for initial encounter');
+  // find the encounter
 
-    db.activeChar.findAll().then(characters => {
-        // send result to handlebars
-        console.log('Found Active Characters', characters.length)
+  db.activeChar.findAll().then((characters) => {
+    // send result to handlebars
+    console.log('Found Active Characters', characters.length);
 
-        let charArr = [];
+    const charArr = [];
 
-        characters.forEach(charObj => {
-            console.log(charObj.dataValues.name);
-            charArr.push(charObj.dataValues);
-        })
-
-        res.json(charArr);
+    characters.forEach((charObj) => {
+      console.log(charObj.dataValues.name);
+      charArr.push(charObj.dataValues);
     });
+
+    res.json(charArr);
+  });
 });
 
 // Get single characters, render to JSON
-router.get("/api/characters/:id", function(req, res) {
-    // log in node terminal
-    console.log("Request received for single character")
-    // find the encounter
+router.get('/api/characters/:id', (req, res) => {
+  // log in node terminal
+  console.log('Request received for single character');
+  // find the encounter
 
-    db.activeChar.findOne({ where: { id: req.params.id } }).then(character => {
-        // send result to handlebars
-        console.log('Found Active Character', character.dataValues)
+  db.activeChar.findOne({ where: { id: req.params.id } }).then((character) => {
+    // send result to handlebars
+    console.log('Found Active Character', character.dataValues);
 
-        res.json(character);
-    });
+    res.json(character);
+  });
 });
 
 // POST here
@@ -174,9 +171,5 @@ router.post("/api/characters", function(req, res) {
       });
       
 });
-
-
-
-
 
 module.exports = router;

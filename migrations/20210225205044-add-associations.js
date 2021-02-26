@@ -1,10 +1,10 @@
-'use strict';
+// 'use strict';
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.addColumn(
       'options', // name of Source model
-      'encounterID', // name of the key we're adding 
+      'encounterID', // name of the key we're adding
       {
         type: Sequelize.INTEGER,
         references: {
@@ -13,7 +13,7 @@ module.exports = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
-      }
+      },
     ).then(() => {
       return queryInterface.addColumn(
         'encounters', // name of Target model
@@ -26,21 +26,21 @@ module.exports = {
           },
           onUpdate: 'CASCADE',
           onDelete: 'SET NULL',
-        }
+        },
       );
-    })
+    });
   },
 
   down: async (queryInterface, Sequelize) => {
     return queryInterface.removeColumn(
       'options', // name of Source model
-      'encountersID' // key we want to remove
+      'encountersID', // key we want to remove
     ).then(() => {
       // remove Payment hasOne Order
       return queryInterface.removeColumn(
         'Orders', // name of the Target model
-        'PaymentId' // key we want to remove
+        'PaymentId', // key we want to remove
       );
     });
-  }
+  },
 };

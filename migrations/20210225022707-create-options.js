@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -7,37 +7,37 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       optionText: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       nextEncounter: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       consequence: {
-          type: Sequelize.TEXT,
-          allowNull: true
+        type: Sequelize.TEXT,
+        allowNull: true,
       },
       stateChange: {
-          type: Sequelize.STRING,
-          allowNull: true 
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       checkState: {
-        type: DataTypes.STRING,
-        allowNull: true
+        type: Sequelize.STRING,
+        allowNull: true,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('options');
-  }
+  },
 };
