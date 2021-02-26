@@ -19,8 +19,8 @@ module.exports = {
           type: Sequelize.TEXT,
           allowNull: true
       },
-      tResult: {
-          type: Sequelize.TEXT,
+      stateChange: {
+          type: Sequelize.STRING,
           allowNull: true 
       },
       createdAt: {
