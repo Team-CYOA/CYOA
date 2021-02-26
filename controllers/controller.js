@@ -16,11 +16,30 @@ router.get("/", function(req, res) {
 // initial encounter, defaults to encounter 1
 router.get("/encounters", function(req, res) {
     // log in node terminal
-    console.log("Request received for encounter 1")
+    console.log("Request received for initial encounter")
     // find the encounter
-    db.encounters.findOne({
-        id: 1
-    }).then(encounter => {
+
+    db.encounters.findOne({ where: { id: 1 } }).then(encounter => {
+        // send result to handlebars
+        console.log('found encounter', encounter)
+
+        const encounterRender = {
+            premiseText: encounter.dataValues.encounterText,
+            choices: ['choice1', 'choice2', 'choice3']
+        }
+        // send to handlebars
+        res.render("encounter", encounterRender);
+    });
+
+});
+
+// specified ID encounter
+router.get("/encounters/:id", function(req, res) {
+    
+    // log in node terminal
+    console.log("Request received for Specific encounter, ID = ", req.params.id)
+
+    db.encounters.findOne({ where: { id: req.params.id } }).then(encounter => {
         // send result to handlebars
         console.log('found encounter', encounter)
         const encounterRender = {
@@ -29,27 +48,80 @@ router.get("/encounters", function(req, res) {
         }
         // send to handlebars
         res.render("encounter", encounterRender);
-    })
+    });
 });
 
-// specified ID encounter
-router.get("/encounters/:id", function(req, res) {
-
+// Get all characters, render to HTML
+router.get("/characters", function(req, res) {
     // log in node terminal
-    console.log("Request received for Specific encounter", req.body.id)
-
+    console.log("Request received for initial encounter")
     // find the encounter
-    db.encounters.findOne({
-        id: req.body.id
-    }).then(encounter => {  
-        console.log('found encounter', encounter)
-        const encounterRender = {
-            premiseText: encounter.dataValues.encounterText,
-            choices: ['choice1', 'choice2', 'choice3']
-        }
-        // send to handlebars
-        res.render("encounter", encounterRender);
-    })
+
+    db.activeChar.findAll().then(characters => {
+        // send result to handlebars
+        console.log('Found Active Characters', characters.length)
+
+        let charArr = [];
+
+        characters.forEach(charObj => {
+            console.log(charObj.dataValues.name);
+            charArr.push(charObj.dataValues);
+        })
+
+        // res.render("allcharacters", {charArr});
+    });
+
 });
+
+// Get all characters, render to JSON
+router.get("/api/characters", function(req, res) {
+    // log in node terminal
+    console.log("Request received for initial encounter")
+    // find the encounter
+
+    db.activeChar.findAll().then(characters => {
+        // send result to handlebars
+        console.log('Found Active Characters', characters.length)
+
+        let charArr = [];
+
+        characters.forEach(charObj => {
+            console.log(charObj.dataValues.name);
+            charArr.push(charObj.dataValues);
+        })
+
+        res.json(charArr);
+    });
+
+});
+
+// Get single characters, render to JSON
+router.get("/api/characters/:id", function(req, res) {
+    // log in node terminal
+    console.log("Request received for single character")
+    // find the encounter
+
+    db.activeChar.findOne({ where: { id: req.params.id } }).then(character => {
+        // send result to handlebars
+        console.log('Found Active Character', character.dataValues)
+
+        res.json(character);
+    });
+
+});
+
 
 module.exports = router;
+
+// testing
+
+// initial encounter, defaults to encounter 1
+router.get("/choices", function(req, res) {
+    // log in node terminal
+    
+    db.options.findOne({ where: { id: 1 } })
+    .then(choices => {
+        console.log(choices);
+    });
+
+});
