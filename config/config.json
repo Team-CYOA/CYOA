@@ -3,13 +3,14 @@
     "username": "root",
     "password": "castaway",
     "database": "CYOA_db",
+
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "yourRootPassword",
-    "database": "CYOA_db",
+    "password": null,
+    "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
