@@ -7,6 +7,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 2,
     consequence: "Consequence: You drop down to the ground and pop the hood of your damaged ship. There’s a small fire burning smouldering and you try to quickly stomp it out with your feet. You are successful, but your shoes are completely melted- you have to discard them. (HasShoes: false ) (Go to Premise 2)",
     //tResult: "",
+    encounterID: 1,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -15,6 +16,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 4,
     consequence: "You strap in and smash that eject button. As you rocket away from your ship in the ejection seat, you realize the damage doesn’t really look that bad. Walking back to your ship, on the other hand, is going to take some time. (Go to Premise 4)",
     //tResult: "",
+    encounterID: 1,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -23,6 +25,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 3,
     consequence: "Consequence: You search high and low for your spacesuit, before finally finding it tucked away under your bed behind some questionable reading material. You really should have cleaned the ship before you left. In fact, you really just need to get your shit together in general- just look at this place- it’s disgusting. (HasSpacesuit: true) (Go to Premise 3)",
     //tResult: "",
+    encounterID: 1,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -31,6 +34,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 2,
     consequence: "Consequence: You slide down the fire escape and land on your feet. You pop the hood and immediately blast the engine with your fire extinguisher. As the smoke begins to dissipate, you pat yourself on the back for your good decision making. (HasTools: true) (Go to Premise 2)",
     //tResult: "",
+    encounterID: 1,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -39,6 +43,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 5,
     consequence: "Consequence: Armed with your trusty AMD, you stomp off into the dense foliage that surrounds the crash site. (Go to Premise 5)",
     //tResult: "",
+    encounterID: 2,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -47,6 +52,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 6,
     consequence: "Consequence: You return to the ship and sure enough, there appears to be a small settlement within walking distance of your downed ship. Funny how that works out right? I mean it’s an entire planet, millions and millions of square miles, and yet you always come down near a settlement. You grab some fliff and head out. (canTrade: true) (Go to Premise 6)",
     //tResult: "",
+    encounterID: 2,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -55,6 +61,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 5,
     consequence: "Consequence: Armed with your trusty intuition, you stomp off into the forest… hoping you’ll stumble across your warp belt, somehow. (Go to Premise 5)",
     //tResult: "",
+    encounterID: 2,
     createdAt: new Date(),
     updatedAt: new Date()
     },  
@@ -63,6 +70,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 6,
     consequence: "Consequence: After checking the ship computer for coordinates, you make for the nearby town. You grab a few of your more valuable pieces of junk and cross your fingers that the locals have mastered spaceflight, or at least brewing. (canTrade)(Go to premise 6)",
     //tResult: "",
+    encounterID: 3,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -71,6 +79,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 5,
     consequence: "Consequence: With a surge of determination, you set off into the woods to find your missing parts. (Go to Premise 5)",
     //tResult: "",
+    encounterID: 3,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -78,7 +87,8 @@ queryInterface.bulkInsert('options', [{
     optionText: "Option C - You feel the creep of despair as you realize you have neither the know-how to repair your ship nor the liquidity to pay for it. You look around, realizing this forest is your new home.",
     nextEncounter: -1,
     //consequence: "",
-    tResult: "Option C - You feel the creep of despair as you realize you have neither the know-how to repair your ship nor the liquidity to pay for it. You look around, realizing this forest is your new home.",
+    tResult: "Terminal Consequence: As fortune would have it, you find a medium sized ball frequently used in team-based competitive sports involving a net and some sand. With a little creativity, and a lot of desperate isolation, you are able to establish communication with the ball, and live happily ever after.",
+    encounterID: 3,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -87,6 +97,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 3,
     consequence: "Consequence: You trek back to your ship through uncharted woods, it takes several hours, and you are certain more damage will be done to your ship in the meantime. (Go to Premise 3)",
     //tResult: "",
+    encounterID: 4,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -95,6 +106,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 6,
     consequence: "Consequence: You head off in the rough direction of town, hoping nothing eats you along the way. (Go to Premise 6)",
     //tResult: "",
+    encounterID: 4,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -103,6 +115,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     //consequence: "",
     tResult: "Terminal Consequence: Huzzah! Your calm, rational approach to this catastrophe has paid off. There, under a fern, as though placed there intentionally by a higher power dictating the course of your playthr- life, is the warp belt. You grab the belt and march back to your ship- you’ll be zipping through hyperspace in no time!",
+    encounterID: 5,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -111,6 +124,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     //consequence: "",
     tResult: "Terminal Consequence: An aged hermit answers the door, and when it senses your suffering the creature invites you inside. Even though you do not share a common language (or number of limbs) with the old ascetic, the two of you slowly bond. It teaches you about its own enlightenment, as well as the ways of this old forest. Many years later, long after the hermit has passed on and you have inherited its old cabin, you stumble across an aged, decrepit starship crashed in the woods. You run your hand over the rusted body, scarcely able to remember life before the crash.",
+    encounterID: 5,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -119,6 +133,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     //consequence: "",
     tResult: "Terminal Consequence: (If hasSpacesuit) You accidentally fall into the stream and find the current surprisingly strong. Your space suit protects you from drowning, and hours later you wash up on an unknown shore. A small farming family takes you in and teaches you to live off the land. You hang your spacesuit in the closet of the spare bedroom they put you up in. Or (If !hasSpacesuit) The current is surprisingly strong, and the stream is very deep. Let’s just cut to the chase and say you drowned.",
+    encounterID: 5,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -127,6 +142,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     //consequence: "",
     tResult: "Terminal Consequence: Seriously? Eat the fruit? From the alien tree in an alien forest? Did you not read Into the Wild? Not even see the movie? You die.",
+    encounterID: 5,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -135,6 +151,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     //consequence: "",
     tResult: "Terminal Consequence: (If hasShoes: true) You find the merchant to be both friendly and understanding of your predicament. He cuts you a deal on some parts that will get your ship flying in no time. Or (hasShoes: false) As soon as you walk in the owner of the shop appears to go into a fit of rage. You can’t understand exactly what he means, but he points at a sign depicting a shirt and a pair of shoes. Then he pulls an energy weapon from under the cash register. You understand that your lack of shoes has led to a lack of service, and leave.",
+    encounterID: 6,
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -143,6 +160,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     //consequence: "",
     tResult: "Terminal Consequence: Without anything to trade for new parts, you decide to go blow what you do have drinking whatever passes for beer around these parts. Your spaceship can always wait til tomorrow...",
+    encounterID: 6,
     createdAt: new Date(),
     updatedAt: new Date()
     }
@@ -151,11 +169,7 @@ queryInterface.bulkInsert('options', [{
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+
+      await queryInterface.bulkDelete('options', null, {});
   }
 };
