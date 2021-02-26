@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      
-      options.belongsTo(models.encounters);
-      
+
+        options.belongsTo(models.encounters);
+
     }
   };
   options.init({
@@ -24,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    tResult: {
-      type: DataTypes.TEXT,
+    stateChange: {
+      type: DataTypes.STRING,
       allowNull: true
     }
   }, {
