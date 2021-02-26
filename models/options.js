@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     stateChange: {
       type: DataTypes.STRING,
       allowNull: true
+    },
+    checkState: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   }, {
     sequelize,

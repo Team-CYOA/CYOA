@@ -43,6 +43,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 5,
     consequence: "Consequence: Armed with your trusty AMD, you stomp off into the dense foliage that surrounds the crash site. (Go to Premise 5)",
     encounterID: 2,
+    checkState: "hasTools",
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -60,6 +61,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 5,
     consequence: "Consequence: Armed with your trusty intuition, you stomp off into the forest… hoping you’ll stumble across your warp belt, somehow. (Go to Premise 5)",
     encounterID: 2,
+    checkState: "!hasTools",
     createdAt: new Date(),
     updatedAt: new Date()
     },  
@@ -109,6 +111,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     consequence: "Terminal Consequence: Huzzah! Your calm, rational approach to this catastrophe has paid off. There, under a fern, as though placed there intentionally by a higher power dictating the course of your playthr- life, is the warp belt. You grab the belt and march back to your ship- you’ll be zipping through hyperspace in no time!",
     encounterID: 5,
+    checkState: "hasTools && !engineDestroyed",
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -117,6 +120,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     consequence: "Terminal Consequence: An aged hermit answers the door, and when it senses your suffering the creature invites you inside. Even though you do not share a common language (or number of limbs) with the old ascetic, the two of you slowly bond. It teaches you about its own enlightenment, as well as the ways of this old forest. Many years later, long after the hermit has passed on and you have inherited its old cabin, you stumble across an aged, decrepit starship crashed in the woods. You run your hand over the rusted body, scarcely able to remember life before the crash.",
     encounterID: 5,
+    checkState: "engineDestroyed",
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -125,6 +129,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     consequence: "Terminal Consequence: (If hasSpacesuit) You accidentally fall into the stream and find the current surprisingly strong. Your space suit protects you from drowning, and hours later you wash up on an unknown shore. A small farming family takes you in and teaches you to live off the land. You hang your spacesuit in the closet of the spare bedroom they put you up in. Or (If !hasSpacesuit) The current is surprisingly strong, and the stream is very deep. Let’s just cut to the chase and say you drowned.",
     encounterID: 5,
+    checkState: "!hasTools && hasSpacesuit",
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -141,6 +146,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     consequence: "Terminal Consequence: (If hasShoes: true) You find the merchant to be both friendly and understanding of your predicament. He cuts you a deal on some parts that will get your ship flying in no time. Or (hasShoes: false) As soon as you walk in the owner of the shop appears to go into a fit of rage. You can’t understand exactly what he means, but he points at a sign depicting a shirt and a pair of shoes. Then he pulls an energy weapon from under the cash register. You understand that your lack of shoes has led to a lack of service, and leave.",
     encounterID: 6,
+    checkState: "canTrade && hasShoes",
     createdAt: new Date(),
     updatedAt: new Date()
     },
@@ -149,6 +155,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: -1,
     consequence: "Terminal Consequence: Without anything to trade for new parts, you decide to go blow what you do have drinking whatever passes for beer around these parts. Your spaceship can always wait til tomorrow...",
     encounterID: 6,
+    checkState: "!canTrade",
     createdAt: new Date(),
     updatedAt: new Date()
     }
