@@ -51,6 +51,7 @@ router.get("/encounters/:id", function(req, res) {
     });
 });
 
+
 // specific encounter, render to JSON
 router.get("/api/encounters/:id", function(req, res) {
     // log in node terminal

@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       
         encounters.hasMany(models.options);
       
+        
     }
   };
   encounters.init({
