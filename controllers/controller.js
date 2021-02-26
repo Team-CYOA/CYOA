@@ -1,5 +1,5 @@
-const express = require("express");
-const path = require('path');
+const express = require('express');
+// import path = require('path');
 const router = express.Router();
 const db = require('../models/index.js');
 
@@ -7,7 +7,7 @@ const db = require('../models/index.js');
 
 // // GET routes HERE
 // index/splash screen
-router.get("/", function(req, res) {
+router.get('/', function(req, res) {
     console.log("Request received for index...")
     res.render("index");
 });
