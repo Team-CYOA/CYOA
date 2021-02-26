@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
 
         options.belongsTo(models.encounters);
+
     }
   };
   options.init({
