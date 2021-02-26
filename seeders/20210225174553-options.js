@@ -16,6 +16,7 @@ queryInterface.bulkInsert('options', [{
     nextEncounter: 4,
     consequence: "You strap in and smash that eject button. As you rocket away from your ship in the ejection seat, you realize the damage doesn’t really look that bad. Walking back to your ship, on the other hand, is going to take some time. (Go to Premise 4)",
     encounterID: 1,
+    stateChange: "engineDestroyed",
     createdAt: new Date(),
     updatedAt: new Date()
     },
