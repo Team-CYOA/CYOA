@@ -18,9 +18,8 @@ router.get("/encounters", function(req, res) {
     // log in node terminal
     console.log("Request received for encounter 1")
     // find the encounter
-    db.encounters.findOne({
-        id: 1
-    }).then(encounter => {
+
+    db.encounters.findOne({ where: { id: 1 } }).then(encounter => {
         // send result to handlebars
         console.log('found encounter', encounter)
         const encounterRender = {
@@ -29,19 +28,18 @@ router.get("/encounters", function(req, res) {
         }
         // send to handlebars
         res.render("encounter", encounterRender);
-    })
+    });
+
 });
 
 // specified ID encounter
 router.get("/encounters/:id", function(req, res) {
-
+    
     // log in node terminal
-    console.log("Request received for Specific encounter", req.body.id)
+    console.log("Request received for Specific encounter, ID = ", req.params.id)
 
-    // find the encounter
-    db.encounters.findOne({
-        id: req.body.id
-    }).then(encounter => {  
+    db.encounters.findOne({ where: { id: req.params.id } }).then(encounter => {
+        // send result to handlebars
         console.log('found encounter', encounter)
         const encounterRender = {
             premiseText: encounter.dataValues.encounterText,
@@ -49,7 +47,7 @@ router.get("/encounters/:id", function(req, res) {
         }
         // send to handlebars
         res.render("encounter", encounterRender);
-    })
+    });
 });
 
 module.exports = router;
