@@ -1,20 +1,9 @@
-'use strict';
 const {
-  Model
+  Model, Sequelize, DataTypes
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+const sequelize = require('../config/connection');
   class encounters extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
 
-        encounters.hasMany(models.options);
-
-
-    }
   };
   encounters.init({
     encounterText: DataTypes.TEXT
@@ -22,5 +11,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'encounters',
   });
-  return encounters;
-};
+
+module.exports = encounters;
