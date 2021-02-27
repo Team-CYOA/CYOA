@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('encounters', {
