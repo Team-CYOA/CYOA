@@ -1,9 +1,20 @@
-    <h1> Encounter </h1>
-    <p>{{ this.encounterText }}</p>
-    <ul>
-        {{#each this.choices }}
-            <li>{{this}}</li>
-        {{/each}}
-    </ul>
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+
+
+<section class="section">
+    <div class="container">
+        <div class="column is-centered">
+            <div class="column is-half">
+                <h1> CHAPTER 1 </h1>
+                <p>{{ this.encounterText }}</p>
+                <ul>
+                    {{#each this.choices }}
+                    <button class="button is-medium is-full-length is-hovered is-rounded">{{this}}</button>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 {{!-- DELETE THIS AT WILL --}}
