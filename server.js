@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 const favicon = require('express-favicon');
 const sequelize = require('./config/connection');
-const routes  = require('./controllers/controller.js');
+const routes = require('./controllers/controller.js');
 const db = require('./models');
 
 // Static file serving

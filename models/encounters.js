@@ -1,20 +1,9 @@
-//'use strict';
 const {
   Model, Sequelize, DataTypes
 } = require('sequelize');
 const sequelize = require('../config/connection');
   class encounters extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    //static associate(models) {
 
-      //  encounters.hasMany(models.options);
-
-
-    //}
   };
   encounters.init({
     encounterText: DataTypes.TEXT
@@ -22,6 +11,5 @@ const sequelize = require('../config/connection');
     sequelize,
     modelName: 'encounters',
   });
-//  return encounters;
-//};
+
 module.exports = encounters;
