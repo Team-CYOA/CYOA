@@ -1,8 +1,8 @@
 'use strict';
 const {
-  Model
+  Model, Sequelize, DataTypes
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+const sequelize = require('../config/connection');
   class options extends Model {
 
     
@@ -11,11 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    // static associate(models) {
 
-        options.belongsTo(models.encounters);
+    //     options.belongsTo(models.encounters);
 
-    }
+    // }
   };
   options.init({
     optionText: DataTypes.STRING,
@@ -36,5 +36,7 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'options',
   });
-  return options;
-};
+//  return options;
+//};
+
+module.exports = options;

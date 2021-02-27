@@ -1,17 +1,18 @@
 'use strict';
 const {
-  Model
+  Model, Sequelize, DataTypes
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+const sequelize = require('../config/connection');
+//module.exports = (sequelize, DataTypes) => {
   class activeChar extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    //static associate(models) {
       // define association here
-    }
+    //}
   };
   activeChar.init({
     name: DataTypes.STRING,
@@ -39,5 +40,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'activeChar',
   });
-  return activeChar;
-};
+//  return activeChar;
+//};
+module.exports = activeChar;
