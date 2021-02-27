@@ -3,8 +3,8 @@
 const express = require('express');
 const app = express();
 const favicon = require('express-favicon');
-
-const routes  = require('./controllers/controller.js');
+const sequelize = require('./config/connection');
+const routes = require('./controllers/controller.js');
 const db = require('./models');
 
 // Static file serving
@@ -32,6 +32,6 @@ app.use(routes);
 
 // sync with sql db and listen
 
-db.sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: false }).then(() => {
     app.listen((process.env.PORT || PORT), () => console.log(`Listening on PORT ${PORT}`));
 });
