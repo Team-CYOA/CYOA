@@ -7,9 +7,9 @@
             <div class="column is-half">
                 <h1> CHAPTER 1 </h1>
                 <p id="demo">{{ this.encounterText }}</p>
-                <ul id="btn">
+                <ul>
                     {{#each this.choices }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded">{{this}}</button>
+                    <button class="button is-medium is-full-length is-hovered is-rounded options option btn" id="{{@index}}">{{this}}</button>
                     {{/each}}
                 </ul>
             </div>

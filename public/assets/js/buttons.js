@@ -1,7 +1,10 @@
+const elements = document.getElementsByClassName('button');
 
+const myFunction = function () {
+  const attribute = this.getAttribute('id');
+  console.log(attribute);
+};
 
-const submitChirpBtn = document.getElementById('btn');
-submitChirpBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  console.log('clicky');
+Array.from(elements).forEach((element) => {
+  element.addEventListener('click', myFunction);
 });
