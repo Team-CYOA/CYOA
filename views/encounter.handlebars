@@ -8,8 +8,8 @@
                 <h1> CHAPTER 1 </h1>
                 <p id="demo">{{ this.encounterText }}</p>
                 <ul>
-                    {{#each this.choices }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded options option btn" id="{{@index}}">{{this}}</button>
+                    {{#each this.options }}
+                    <button class="button is-medium is-full-length is-hovered is-rounded options option btn" id="{{this.id}}">{{this.optionText}}</button>
                     {{/each}}
                 </ul>
             </div>

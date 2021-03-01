@@ -74,19 +74,22 @@ function buildEncounter(results) {
   console.log('  ');
   const encounterObj = {
     encounterText: results[0].dataValues.encounterText,
-    choices: [],
-    consequences: [],
+    options: [],
   };
-  // choices
+  // options
   console.log('  ');
   results[0].dataValues.options.forEach((opt) => {
-    encounterObj.choices.push(opt.dataValues.optionText);
-    encounterObj.consequences.push(opt.dataValues.consequence);
+    let choiceObj = {
+      optionText: (opt.dataValues.optionText),
+      id: (opt.dataValues.id),
+      stateChange: opt.dataValues.stateChange
+    }
+    encounterObj.options.push(choiceObj)
     // add more option related things here, such as state changes
   });
   // console.log('this is results,', results);
   // console.log('this is encounter obj', encounterObj);
-  console.log(results[0].dataValues.options);
+  console.log(encounterObj);
   return encounterObj;
 }
 
