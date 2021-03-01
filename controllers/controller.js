@@ -89,26 +89,7 @@ function buildEncounter(results) {
        return encounterObj 
 }
 
-// Get all characters, render to HTML
-router.get('/characters', (req, res) => {
-  // log in node terminal
-  console.log('Request received for initial encounter');
-  // find the encounter
 
-  db.activeChar.findAll().then((characters) => {
-    // send result to handlebars
-    console.log('Found Active Characters', characters.length);
-
-    const charArr = [];
-
-    characters.forEach((charObj) => {
-      console.log(charObj.dataValues.name);
-      charArr.push(charObj.dataValues);
-    });
-
-    // res.render("allcharacters", {charArr});
-  });
-});
 
 // Get all characters, render to JSON
 router.get('/api/characters', (req, res) => {
@@ -167,6 +148,27 @@ router.post("/api/characters", function(req, res) {
         res.end()
         console.log("New Character Added to DB!")
       })
+});
+
+// Get all characters, render to HTML
+router.get('/characters', (req, res) => {
+  // log in node terminal
+  console.log('Request received for initial encounter');
+  // find the encounter
+
+  db.activeChar.findAll().then((characters) => {
+    // send result to handlebars
+    console.log('Found Active Characters', characters.length);
+
+    const charArr = [];
+
+    characters.forEach((charObj) => {
+      console.log(charObj.dataValues.name);
+      charArr.push(charObj.dataValues.id);
+    });
+    console.log(charArr)
+    res.render("characterSelect", {charArr});
+  });
 });
 
 module.exports = router;

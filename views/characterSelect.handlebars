@@ -1,0 +1,14 @@
+<section class="section">
+    <div class="container">
+        <div class="column is-centered">
+            <div class="column is-half">
+                <h1> Characters! </h1>
+                <ul>
+                    {{#each this.characters }}
+                    <button id="current encounter row id here" class="button is-medium is-full-length is-hovered is-rounded">{{this.name}}</button>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
