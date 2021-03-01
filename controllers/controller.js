@@ -71,32 +71,27 @@ router.get('/api/encounters/:id', (req, res) => {
 
 function buildEncounter(results) {
   // encounterText
-  console.log('  ');
   const encounterObj = {
     encounterText: results[0].dataValues.encounterText,
     options: [],
   };
-  // options
-  console.log('  ');
+
   results[0].dataValues.options.forEach((opt) => {
     let choiceObj = {
       optionText: (opt.dataValues.optionText),
-      id: (opt.dataValues.id),
-      stateChange: opt.dataValues.stateChange
+      id: (opt.dataValues.id)
     }
+
     encounterObj.options.push(choiceObj)
-    // add more option related things here, such as state changes
   });
-  // console.log('this is results,', results);
-  // console.log('this is encounter obj', encounterObj);
-  console.log(encounterObj);
+
   return encounterObj;
 }
 
 // Get all characters, render to HTML
 router.get('/characters', (req, res) => {
   // log in node terminal
-  console.log('Request received for initial encounter');
+  console.log('Request received for allChars');
   // find the encounter
 
   db.activeChar.findAll().then((characters) => {
@@ -110,6 +105,7 @@ router.get('/characters', (req, res) => {
       charArr.push(charObj.dataValues);
     });
 
+    // render characters here
     // res.render("allcharacters", {charArr});
   });
 });
