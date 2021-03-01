@@ -69,10 +69,10 @@ router.get('/api/encounters/:id', (req, res) => {
     });
 });
 
-
 function buildEncounter(results) {
       // encounterText
       console.log("  ")
+      console.log(results[0].dataValues.options[0].dataValues)
         let encounterObj = {
             encounterText: results[0].dataValues.encounterText,
             choices: [],
@@ -151,7 +151,7 @@ router.get('/api/characters/:id', (req, res) => {
 // not working
 
 router.post("/api/characters", function(req, res) {
-
+  console.log("Creating New Char")
     const newChar = {
         name: 'test',
         hasShoes: true,
@@ -162,14 +162,11 @@ router.post("/api/characters", function(req, res) {
     }
 
 
-    db.characters.create(newChar)
+    db.activeChar.create(newChar)
       .then(function() {
-        res.redirect(307, "/api/characters");
+        res.end()
+        console.log("New Character Added to DB!")
       })
-      .catch(function(err) {
-        res.status(401).json(err);
-      });
-      
 });
 
 module.exports = router;
