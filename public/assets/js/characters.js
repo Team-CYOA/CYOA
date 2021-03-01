@@ -12,8 +12,16 @@ function createChar() {
             method: "POST"
         }).then(function(){ 
             console.log("Clicked!")
+            //nextEnc();
         })
     });
 }
 
+const nextEnc = (neID = 1) => {
+    fetch(`/encounters`, {method: "GET"})
+    console.log('getting that for you');
+    };
+  
+
 createChar()
+
