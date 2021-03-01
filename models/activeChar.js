@@ -28,6 +28,10 @@ activeChar.init({
     type: DataTypes.BOOLEAN,
     defaultValue: false,
   },
+  currentEncounter: {
+    type: DataTypes.INTEGER,
+    defaultValue: 1,
+  },
 }, {
   sequelize,
   modelName: 'activeChar',
