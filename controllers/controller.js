@@ -69,30 +69,29 @@ router.get('/api/encounters/:id', (req, res) => {
     });
 });
 
-
 function buildEncounter(results) {
-      // encounterText
-      console.log("  ")
-        let encounterObj = {
-            encounterText: results[0].dataValues.encounterText,
-            choices: [],
-            consequences: []
-        }
-        // choices
-      console.log("  ")
-        results[0].dataValues.options.forEach(opt => {
-            encounterObj.choices.push(opt.dataValues.optionText);
-            encounterObj.consequences.push(opt.dataValues.consequence);
-            // add more option related things here, such as state changes
-        })     
-        
-       return encounterObj 
+  // encounterText
+  const encounterObj = {
+    encounterText: results[0].dataValues.encounterText,
+    options: [],
+  };
+
+  results[0].dataValues.options.forEach((opt) => {
+    let choiceObj = {
+      optionText: (opt.dataValues.optionText),
+      id: (opt.dataValues.id)
+    }
+
+    encounterObj.options.push(choiceObj)
+  });
+
+  return encounterObj;
 }
 
 // Get all characters, render to HTML
 router.get('/characters', (req, res) => {
   // log in node terminal
-  console.log('Request received for initial encounter');
+  console.log('Request received for allChars');
   // find the encounter
 
   db.activeChar.findAll().then((characters) => {
@@ -106,6 +105,7 @@ router.get('/characters', (req, res) => {
       charArr.push(charObj.dataValues);
     });
 
+    // render characters here
     // res.render("allcharacters", {charArr});
   });
 });
@@ -150,26 +150,38 @@ router.get('/api/characters/:id', (req, res) => {
 
 // not working
 
-router.post("/api/characters", function(req, res) {
+router.post('/api/characters', (req, res) => {
+  const newChar = {
+    name: 'test',
+    hasShoes: true,
+    hasTools: false,
+    hasSpacesuit: false,
+    engineDestroyed: false,
+    canTrade: false,
+  };
 
-    const newChar = {
-        name: 'test',
-        hasShoes: true,
-        hasTools: false,
-        hasSpacesuit: false,
-        engineDestroyed: false,
-        canTrade: false
-    }
-
-
-    db.characters.create(newChar)
-      .then(function() {
-        res.redirect(307, "/api/characters");
-      })
-      .catch(function(err) {
-        res.status(401).json(err);
-      });
-      
+  db.characters.create(newChar)
+    .then(() => {
+      res.redirect(307, '/api/characters');
+    })
+    .catch((err) => {
+      res.status(401).json(err);
+    });
 });
+
+// Options API
+router.get('/api/options/:id', (req, res) => {
+  // log in node terminal
+  console.log('Querying option = ', req.params.id);
+  db.options.findOne({
+    where: { id: req.params.id }
+  })
+    .then((results) => {
+      res.json(results);
+    });
+});
+
+
+
 
 module.exports = router;
