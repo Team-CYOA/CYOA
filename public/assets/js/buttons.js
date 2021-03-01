@@ -24,5 +24,6 @@ function ajaxOptions(optId){
 }).then(function(response){    
 
   console.log(response)
+  consequenceText(response.consequence)
 })
 }

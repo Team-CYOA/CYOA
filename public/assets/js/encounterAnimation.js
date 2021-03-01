@@ -2,6 +2,7 @@ const premEl = document.getElementById('demo');
 const premiseText = premEl.innerText;
 let i = 0;
 const speed = 20;
+let newText = '';
 function typeWriter(text) {
 
   if (i < premiseText.length) {
@@ -10,8 +11,26 @@ function typeWriter(text) {
     setTimeout(typeWriter, speed);
   }
 }
-function getText() {
+function getText(text) {
+  console.log(text);
   premEl.innerText = '';
-  typeWriter(premiseText);
+  typeWriter(text);
 }
-getText();
+getText(premiseText);
+
+const conseqEl = document.getElementById('consequence');
+function consequenceTypeWriter(text) {
+
+  if (i < newText.length) {
+    conseqEl.innerHTML += newText.charAt(i);
+    i++;
+    setTimeout(consequenceTypeWriter, speed);
+  }
+}
+function consequenceText(text) {
+  console.log(text);
+  premEl.innerText = '';
+  newText = text;
+  i = 0;
+  consequenceTypeWriter(text);
+}
