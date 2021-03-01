@@ -173,4 +173,19 @@ router.post('/api/characters', (req, res) => {
     });
 });
 
+// Options API
+router.get('/api/options/:id', (req, res) => {
+  // log in node terminal
+  console.log('Querying option = ', req.params.id);
+  db.options.findOne({
+    where: { id: req.params.id }
+  })
+    .then((results) => {
+      res.json(results);
+    });
+});
+
+
+
+
 module.exports = router;
