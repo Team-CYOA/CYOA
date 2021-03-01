@@ -4,11 +4,13 @@
             <div class="column is-half">
                 <h1> Characters! </h1>
                 <ul>
-                    {{#each this.characters }}
-                    <button id="current encounter row id here" class="button is-medium is-full-length is-hovered is-rounded">{{this.name}}</button>
+                    {{#each this.chars}}
+                    <div><button id="current encounter row id here" class="button is-medium is-full-length is-hovered is-rounded">{{this.name}}</button></div>
                     {{/each}}
                 </ul>
             </div>
         </div>
     </div>
 </section>
+
+<!--activChar needs a "current event" column-->

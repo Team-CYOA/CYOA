@@ -131,10 +131,10 @@ router.get('/api/characters/:id', (req, res) => {
 
 // not working
 
-router.post("/api/characters", function(req, res) {
+router.post("/api/characters/:name", function(req, res) {
   console.log("Creating New Char")
     const newChar = {
-        name: 'test',
+        name: req.params.name,
         hasShoes: true,
         hasTools: false,
         hasSpacesuit: false,
@@ -150,6 +150,12 @@ router.post("/api/characters", function(req, res) {
       })
 });
 
+// create character
+router.get('/newChar', (req, res) => {
+  console.log('Request received for index...');
+  res.render('characterNew');
+});
+
 // Get all characters, render to HTML
 router.get('/characters', (req, res) => {
   // log in node terminal
@@ -160,14 +166,20 @@ router.get('/characters', (req, res) => {
     // send result to handlebars
     console.log('Found Active Characters', characters.length);
 
-    const charArr = [];
+    const hbCharObj = {
+      chars: []
+    };
 
     characters.forEach((charObj) => {
-      console.log(charObj.dataValues.name);
-      charArr.push(charObj.dataValues.id);
+      let curChar = {
+        name: charObj.dataValues.name,
+        id: charObj.dataValues.id
+      }
+
+      hbCharObj.chars.push(curChar);
     });
-    console.log(charArr)
-    res.render("characterSelect", {charArr});
+
+    res.render("characterSelect", hbCharObj);
   });
 });
 

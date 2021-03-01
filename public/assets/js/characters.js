@@ -1,27 +1,15 @@
 function createChar() {
 
-    const newCharBTN = document.querySelector("#newChar");
+    const newCharBTN = document.querySelector("#createChar");
 
     newCharBTN.addEventListener("click", ()=> {
+        
+        const newCharInput = document.querySelector("#charName");
+        const newCharName = newCharInput.value;
+
         $.ajax({
-            url: `/api/characters`,
+            url: `/api/characters/${newCharName}`,
             method: "POST"
-        }).then(function(){ 
-            console.log("Clicked!")
-        })
-    });
-}
-
-createChar()
-
-function allChars() {
-
-    const allCharsBTN = document.querySelector("#allChars");
-
-    allCharsBTN.addEventListener("click", ()=> {
-        $.ajax({
-            url: `/api/characters`,
-            method: "GET"
         }).then(function(){ 
             console.log("Clicked!")
         })
