@@ -1,21 +1,17 @@
-'use strict';
-
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('activeChars', [{
-        name: "Paul Atreides",
-        createdAt: new Date(),
-        updatedAt: new Date()
+  up: async (queryInterface) => {
+    await queryInterface.bulkInsert('activeChars', [{
+      name: 'Paul Atreides',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
-        name: "Han Solo",
-        createdAt: new Date(),
-        updatedAt: new Date()
-    }
-  ])
+      name: 'Han Solo',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    }]);
   },
-
-  down: async (queryInterface, Sequelize) => {
+  down: async (queryInterface) => {
     await queryInterface.bulkDelete('activeChars', null, {});
-  }
+  },
 };
