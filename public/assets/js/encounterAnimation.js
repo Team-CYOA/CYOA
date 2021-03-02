@@ -1,7 +1,7 @@
 const premEl = document.getElementById('demo');
 const premiseText = premEl.innerText;
 let i = 0;
-const speed = 20;
+const speed = 10;
 let newText = '';
 function typeWriter(text) {
   if (i < premiseText.length) {
@@ -25,6 +25,8 @@ function consequenceTypeWriter(text) {
     conseqEl.innerHTML += newText.charAt(i);
     i++;
     setTimeout(consequenceTypeWriter, speed);
+  } else {
+    document.getElementById('nextButton').classList.remove('hideButton');
   }
 }
 function consequenceText(text) {
@@ -34,7 +36,3 @@ function consequenceText(text) {
   i = 0;
   consequenceTypeWriter(text);
 }
-
-// setTimeout(() => {
-//   document.getElementById('btnContainer').classList.remove('hideButton');
-// }, 5000);

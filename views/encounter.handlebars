@@ -11,9 +11,12 @@
                 <p id="consequence"></p>
                 <ul id='btnContainer' class="hideButton">
                     {{#each this.options }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded options option btn" id="{{this.id}}">{{this.optionText}}</button>
+                    <button class="button is-medium is-full-length is-hovered is-rounded options optionBtn" id="{{this.id}}">{{this.optionText}}</button>
                     {{/each}}
                 </ul>
+                <div id ='nextButton' class='hideButton'>
+                <button class="button is-medium is-full-length is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
+                </div>
             </div>
         </div>
     </div>
