@@ -1,21 +1,36 @@
-const premEl = document.getElementById("demo")
-const premiseText = premEl.innerText
+const premEl = document.getElementById('demo');
+const premiseText = premEl.innerText;
 let i = 0;
-let speed = 20;
-console.log('hello im alive')
+const speed = 20;
+let newText = '';
 function typeWriter(text) {
-  // console.log(button.id);
-  
-   if(i < premiseText.length) {
-       premEl.innerHTML += premiseText.charAt(i);
-       i++;
-       console.log('text.chartAt', premiseText.charAt(i));
-       setTimeout(typeWriter, speed);
-   }
+
+  if (i < premiseText.length) {
+    premEl.innerHTML += premiseText.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
 }
-function getText () {
-  premEl.innerText = ''
-  console.log(premiseText);
-  typeWriter(premiseText);
+function getText(text) {
+  console.log(text);
+  premEl.innerText = '';
+  typeWriter(text);
 }
-getText();
+getText(premiseText);
+
+const conseqEl = document.getElementById('consequence');
+function consequenceTypeWriter(text) {
+
+  if (i < newText.length) {
+    conseqEl.innerHTML += newText.charAt(i);
+    i++;
+    setTimeout(consequenceTypeWriter, speed);
+  }
+}
+function consequenceText(text) {
+  console.log(text);
+  premEl.innerText = '';
+  newText = text;
+  i = 0;
+  consequenceTypeWriter(text);
+}

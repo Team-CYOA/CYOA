@@ -5,11 +5,12 @@
     <div class="container">
         <div class="column is-centered">
             <div class="column is-half">
-                <h1> CHAPTER 1 </h1>
+                <h1> Encounter!</h1>
                 <p id="demo">{{ this.encounterText }}</p>
+                <p id="consequence"></p>
                 <ul>
-                    {{#each this.choices }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded">{{this}}</button>
+                    {{#each this.options }}
+                    <button class="button is-medium is-full-length is-hovered is-rounded options option btn" id="{{this.id}}">{{this.optionText}}</button>
                     {{/each}}
                 </ul>
             </div>
@@ -17,4 +18,5 @@
     </div>
 </section>
 <script src="./assets/js/encounterAnimation.js"></script>
+<script src="./assets/js/buttons.js"></script>
 {{!-- DELETE THIS AT WILL --}}

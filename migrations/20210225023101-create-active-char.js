@@ -30,6 +30,10 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: false,
       },
+      currentEncounter: {
+        type: DataTypes.INTEGER,
+        defaultValue: 1,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
