@@ -1,7 +1,9 @@
 const elements = document.getElementsByClassName('button');
 
-const myFunction = function () {
+const myFunction = async function () {
   const attribute = this.getAttribute('id');
+  const stateChange = this.getAttribute('stateChange');
+  await updateState(stateChange);
   console.log(attribute);
   ajaxOptions(attribute);
 };
@@ -19,6 +21,11 @@ function ajaxOptions(optId) {
     document.getElementById('btnContainer').classList.add('hideButton');
     consequenceText(response.consequence);
   });
+}
+
+const updateState = (stateChange) => {
+  console.log("updating:", stateChange);
+
 }
 
 
