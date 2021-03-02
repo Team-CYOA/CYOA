@@ -11,7 +11,7 @@
                 <p id="consequence"></p>
                 <ul id='btnContainer' class="hideButton">
                     {{#each this.options }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded options option btn" id="{{this.id}}">{{this.optionText}}</button>
+                    <button class="button is-medium is-full-length is-hovered is-rounded options option btn" id="{{this.id}}" stateChange="{{this.stateChange}}">{{this.optionText}}</button>
                     {{/each}}
                 </ul>
             </div>

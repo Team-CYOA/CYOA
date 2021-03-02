@@ -24,6 +24,7 @@ router.get('/encounters', (req, res) => {
     },
   })
     .then((results) => {
+      //console.log('here are the RESULTS: ', results[0].options[0].stateChange);
       const encounterObj = buildEncounter(results);
       res.render('encounter', encounterObj);
     });
@@ -77,14 +78,16 @@ function buildEncounter(results) {
   };
 
   results[0].dataValues.options.forEach((opt) => {
+
     let choiceObj = {
       optionText: (opt.dataValues.optionText),
-      id: (opt.dataValues.id)
+      id: (opt.dataValues.id),
+      stateChange: (opt.stateChange),
     }
 
     encounterObj.options.push(choiceObj)
   });
-
+  console.log(encounterObj);
   return encounterObj;
 }
 
