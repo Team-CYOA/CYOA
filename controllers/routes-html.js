@@ -11,6 +11,12 @@ module.exports = function(app) {
     res.render('index');
   });
 
+  // index/splash screen
+  app.get('/credits', (req, res) => {
+    console.log('Request received for credits...');
+    res.render('credits');
+  });
+
   // specific encounter, with charId
   app.get('/encounters/:id/:charId', (req, res) => {
     console.log('Querying encounter ID = ', req.params.id);
