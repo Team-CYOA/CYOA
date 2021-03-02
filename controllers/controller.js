@@ -70,26 +70,45 @@ router.get('/api/encounters/:id', (req, res) => {
 });
 
 function buildEncounter(results) {
-      // encounterText
-      console.log("  ")
-      console.log(results[0].dataValues.options[0].dataValues)
-        let encounterObj = {
-            encounterText: results[0].dataValues.encounterText,
-            choices: [],
-            consequences: []
-        }
-        // choices
-      console.log("  ")
-        results[0].dataValues.options.forEach(opt => {
-            encounterObj.choices.push(opt.dataValues.optionText);
-            encounterObj.consequences.push(opt.dataValues.consequence);
-            // add more option related things here, such as state changes
-        })     
-        
-       return encounterObj 
+  // encounterText
+  const encounterObj = {
+    encounterText: results[0].dataValues.encounterText,
+    options: [],
+  };
+
+  results[0].dataValues.options.forEach((opt) => {
+    let choiceObj = {
+      optionText: (opt.dataValues.optionText),
+      id: (opt.dataValues.id)
+    }
+
+    encounterObj.options.push(choiceObj)
+  });
+
+  return encounterObj;
 }
 
+// Get all characters, render to HTML
+router.get('/characters', (req, res) => {
+  // log in node terminal
+  console.log('Request received for allChars');
+  // find the encounter
 
+  db.activeChar.findAll().then((characters) => {
+    // send result to handlebars
+    console.log('Found Active Characters', characters.length);
+
+    const charArr = [];
+
+    characters.forEach((charObj) => {
+      console.log(charObj.dataValues.name);
+      charArr.push(charObj.dataValues);
+    });
+
+    // render characters here
+    // res.render("allcharacters", {charArr});
+  });
+});
 
 // Get all characters, render to JSON
 router.get('/api/characters', (req, res) => {
