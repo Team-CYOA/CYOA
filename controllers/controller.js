@@ -189,13 +189,31 @@ router.get('/characters', (req, res) => {
 // choices route
 router.get("/api/options/:id", function(req, res) {
   // log in node terminal
-
+  console.log("Request for GET single Option")
   db.options.findOne({ where: { id: req.params.id } })
   .then(option => {
-      console.log(option);
       res.json(option);
   });
 
 }); 
 
 module.exports = router;
+
+
+// update character route
+router.put('/api/characters/:charId/:encId', (req, res) => {
+  // log in node terminal
+  console.log('Request received for updating character');
+  // find the encounter
+  db.activeChar.findOne({
+    id: req.params.id
+  })
+  .then(character => {
+    character.update({
+      currentEncounter: req.params.encId
+    });
+  })
+  .then(res.end());
+});
+
+

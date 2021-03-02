@@ -2,7 +2,7 @@ const elements = document.getElementsByClassName('optionBtn');
 
 const myFunction = function () {
   const attribute = this.getAttribute('id');
-  console.log(attribute);
+
   ajaxOptions(attribute);
 };
 
@@ -15,20 +15,21 @@ function ajaxOptions(optId) {
     url: `/api/options/${optId}`,
     method: 'GET',
   }).then((response) => {
-    console.log(response);
     document.getElementById('btnContainer').classList.add('hideButton');
     consequenceText(response.consequence);
+
+        // get characterID
+    const charEl = document.getElementsByClassName("charId")
+    const charId = charEl[0].id
+
+    console.log("Updating Char...")
+    // get nextEnc to save to char
+    const newEnc = response.nextEncounter;
+    updateCharEncounter(charId, newEnc)
+
+
     document.getElementById('nextEnc').addEventListener('click', () => {
       // console.log(`next encounter is ${response.nextEncounter}`);
-
-
-      // get characterID
-      const charEl = document.getElementsByClassName("charId")
-      console.log(charEl)
-      const charId = charEl[0].id
-      console.log(charId)
-
-      // call "updateCharEncounter" when route exists here
 
       window.location = `/encounters/${response.nextEncounter}/${charId}`;
     });
@@ -36,10 +37,10 @@ function ajaxOptions(optId) {
 }
 
 // updates character with next encounter
-function updateCharEncounter() {
+function updateCharEncounter(charId, encId) {
   $.ajax({
-    url: ,
-    method: 'UPDATE'
+    url: `/api/characters/${charId}/${encId}`,
+    method: 'PUT'
   }).then((res) => {
     console.log("Character updated...")
   })
