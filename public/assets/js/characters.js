@@ -6,14 +6,18 @@ function createChar() {
         
         const newCharInput = document.querySelector("#charName");
         const newCharName = newCharInput.value;
-
-        $.ajax({
-            url: `/api/characters/${newCharName}`,
-            method: "POST"
-        }).then(function(){ 
-            console.log("Clicked!")
-        })
+        
+        ajaxChar(newCharName)
     });
+}
+
+function ajaxChar(name) {
+    $.ajax({
+        url: `/api/characters/${name}`,
+        method: "POST"
+    }).then(function(){ 
+        console.log("Clicked!")
+    })
 }
 
 createChar()

@@ -1,14 +1,18 @@
+{{> navbar}}
+
 <section class="section">
     <div class="container">
         <div class="column is-centered">
-            <div class="column is-half">
+            <div id="renderedChars" class="column is-half">
                 <h1> Characters! </h1>
                 <ul>
                     {{#each this.chars}}
-                    <div><button class="button is-medium is-full-length is-hovered is-rounded"><a href="/encounters/{{this.currentEncounter}}">{{this.name}}</a></button></div>
+                    <div id="{{this.id}}" class="charSelect" vlaue="{{this.currentEncounter}}"><button class="button is-medium is-full-length is-hovered is-rounded">{{this.name}}</button></div>
                     {{/each}}
                 </ul>
             </div>
         </div>
     </div>
 </section>
+
+<script src="/assets/js/charSelect.js"></script>

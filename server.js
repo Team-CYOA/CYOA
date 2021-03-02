@@ -19,9 +19,9 @@ app.use(favicon(__dirname + '/public/favicon.png'));
 // express-handlebars
 
 const exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defaultLayout: "main" , 
+                                    partialDir: 'views/partials'}));
 app.set("view engine", "handlebars");
-
 
 // port
 const PORT = 3000

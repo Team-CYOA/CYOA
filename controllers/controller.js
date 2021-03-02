@@ -30,7 +30,7 @@ router.get('/encounters', (req, res) => {
 });
 
 // specific encounter, render to handlebars
-router.get('/encounters/:id', (req, res) => {
+router.get('/encounters/:id/:charId', (req, res) => {
   // log in node terminal
   console.log('Querying encounter ID = ', req.params.id);
 
@@ -45,6 +45,7 @@ router.get('/encounters/:id', (req, res) => {
   })
     .then((results) => {
       const encounterObj = buildEncounter(results);
+      encounterObj.charId = req.params.charId
       res.render('encounter', encounterObj);
     });
 });
@@ -148,7 +149,7 @@ router.post("/api/characters/:name", function(req, res) {
       })
 });
 
-// create character
+// create character html
 router.get('/newChar', (req, res) => {
   console.log('Request received for index...');
   res.render('characterNew');
@@ -184,7 +185,6 @@ router.get('/characters', (req, res) => {
   });
 });
 
-module.exports = router;
 
 // choices route
 router.get("/api/options/:id", function(req, res) {
@@ -197,3 +197,5 @@ router.get("/api/options/:id", function(req, res) {
   });
 
 }); 
+
+module.exports = router;
