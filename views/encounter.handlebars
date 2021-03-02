@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
 
+
 <section class="section">
     <div class="container">
         <div class="column is-centered">
@@ -8,11 +9,14 @@
                 <h1> Encounter!</h1>
                 <p id="demo">{{ this.encounterText }}</p>
                 <p id="consequence"></p>
-                <ul>
+                <ul id='btnContainer' class="hideButton">
                     {{#each this.options }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded options option btn" id="{{this.id}}">{{this.optionText}}</button>
+                    <button class="button is-medium is-full-length is-hovered is-rounded options optionBtn" id="{{this.id}}">{{this.optionText}}</button>
                     {{/each}}
                 </ul>
+                <div id ='nextButton' class='hideButton'>
+                <button class="button is-medium is-full-length is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
+                </div>
             </div>
         </div>
     </div>
