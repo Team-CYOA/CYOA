@@ -185,3 +185,15 @@ router.get('/characters', (req, res) => {
 });
 
 module.exports = router;
+
+// choices route
+router.get("/api/options/:id", function(req, res) {
+  // log in node terminal
+
+  db.options.findOne({ where: { id: req.params.id } })
+  .then(option => {
+      console.log(option);
+      res.json(option);
+  });
+
+}); 
