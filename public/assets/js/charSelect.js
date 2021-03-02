@@ -7,6 +7,7 @@ function selectedChar() {
     for (let i = 0; i < slectCharEls.length; i++) {
         
         slectCharEls[i].onclick = function() {
+            // get values
             const charId = this.id;
             const encId = this.value;
             const charName = this.innerText
@@ -26,4 +27,4 @@ function selectedChar() {
     }
 }
 
-selectedChar()
+selectedChar();
