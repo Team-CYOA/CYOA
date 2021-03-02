@@ -5,12 +5,10 @@
                 <h1> Characters! </h1>
                 <ul>
                     {{#each this.chars}}
-                    <div><button id="current encounter row id here" class="button is-medium is-full-length is-hovered is-rounded">{{this.name}}</button></div>
+                    <div><button class="button is-medium is-full-length is-hovered is-rounded"><a href="/encounters/{{this.currentEncounter}}">{{this.name}}</a></button></div>
                     {{/each}}
                 </ul>
             </div>
         </div>
     </div>
 </section>
-
-<!--activChar needs a "current event" column-->
