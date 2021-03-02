@@ -28,14 +28,14 @@ function ajaxOptions(optId) {
       const charId = charEl[0].id
       console.log(charId)
 
+      // call "updateCharEncounter" when route exists here
 
       window.location = `/encounters/${response.nextEncounter}/${charId}`;
     });
   });
 }
 
-// generate next button that will grab the next encounter from db
-
+// updates character with next encounter
 function updateCharEncounter() {
   $.ajax({
     url: ,
@@ -44,6 +44,9 @@ function updateCharEncounter() {
     console.log("Character updated...")
   })
 }
+
+// generate next button that will grab the next encounter from db
+
 
 
 // render the next encounters
