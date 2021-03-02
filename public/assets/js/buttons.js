@@ -18,12 +18,9 @@ function ajaxOptions(optId) {
     document.getElementById('btnContainer').classList.add('hideButton');
     consequenceText(response.consequence);
 
-        // get characterID
+    // get all info needed to update character's current event
     const charEl = document.getElementsByClassName("charId")
     const charId = charEl[0].id
-
-    console.log("Updating Char...")
-    // get nextEnc to save to char
     const newEnc = response.nextEncounter;
     updateCharEncounter(charId, newEnc)
 
@@ -38,10 +35,11 @@ function ajaxOptions(optId) {
 
 // updates character with next encounter
 function updateCharEncounter(charId, encId) {
+  console.log("Updating Char...")
   $.ajax({
     url: `/api/characters/${charId}/${encId}`,
     method: 'PUT'
-  }).then((res) => {
+  }).then(() => {
     console.log("Character updated...")
   })
 }
