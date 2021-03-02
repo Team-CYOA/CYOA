@@ -1,4 +1,4 @@
-const elements = document.getElementsByClassName('button');
+const elements = document.getElementsByClassName('optionBtn');
 
 const myFunction = function () {
   const attribute = this.getAttribute('id');
@@ -18,13 +18,15 @@ function ajaxOptions(optId) {
     console.log(response);
     document.getElementById('btnContainer').classList.add('hideButton');
     consequenceText(response.consequence);
+    document.getElementById('nextEnc').addEventListener('click', () => {
+      // console.log(`next encounter is ${response.nextEncounter}`);
+      window.location = `/encounters/${response.nextEncounter}`;
+    });
   });
 }
 
-
-// build function to hide buttons
 // generate next button that will grab the next encounter from db
+
 // render the next encounters
 
 // fetch State
-// disable buttons until text is rendered
