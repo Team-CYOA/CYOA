@@ -2,15 +2,16 @@
 
 function selectedChar() {
     const slectCharEls = document.getElementsByClassName("charSelect");
-    console.log(slectCharEls)
+
 
     for (let i = 0; i < slectCharEls.length; i++) {
         
         slectCharEls[i].onclick = function() {
             // get values
             const charId = this.id;
-            const encId = this.value;
+            const encId = this.getAttribute('value');
             const charName = this.innerText
+            console.log("value", encId)
             // kill all buttons and header
             const charArea = document.getElementById("renderedChars")
             charArea.innerHTML = ''
