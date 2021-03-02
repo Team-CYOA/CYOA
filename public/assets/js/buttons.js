@@ -20,13 +20,36 @@ function ajaxOptions(optId) {
     consequenceText(response.consequence);
     document.getElementById('nextEnc').addEventListener('click', () => {
       // console.log(`next encounter is ${response.nextEncounter}`);
-      window.location = `/encounters/${response.nextEncounter}`;
+
+
+      // get characterID
+      const charEl = document.getElementsByClassName("charId")
+      console.log(charEl)
+      const charId = charEl[0].id
+      console.log(charId)
+
+      // call "updateCharEncounter" when route exists here
+
+      window.location = `/encounters/${response.nextEncounter}/${charId}`;
     });
   });
 }
 
+// updates character with next encounter
+function updateCharEncounter() {
+  $.ajax({
+    url: ,
+    method: 'UPDATE'
+  }).then((res) => {
+    console.log("Character updated...")
+  })
+}
+
 // generate next button that will grab the next encounter from db
+
+
 
 // render the next encounters
 
 // fetch State
+

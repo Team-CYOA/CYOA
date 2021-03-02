@@ -30,7 +30,7 @@ router.get('/encounters', (req, res) => {
 });
 
 // specific encounter, render to handlebars
-router.get('/encounters/:id', (req, res) => {
+router.get('/encounters/:id/:charId', (req, res) => {
   // log in node terminal
   console.log('Querying encounter ID = ', req.params.id);
 
@@ -45,6 +45,7 @@ router.get('/encounters/:id', (req, res) => {
   })
     .then((results) => {
       const encounterObj = buildEncounter(results);
+      encounterObj.charId = req.params.charId
       res.render('encounter', encounterObj);
     });
 });
@@ -88,27 +89,6 @@ function buildEncounter(results) {
   return encounterObj;
 }
 
-// Get all characters, render to HTML
-router.get('/characters', (req, res) => {
-  // log in node terminal
-  console.log('Request received for allChars');
-  // find the encounter
-
-  db.activeChar.findAll().then((characters) => {
-    // send result to handlebars
-    console.log('Found Active Characters', characters.length);
-
-    const charArr = [];
-
-    characters.forEach((charObj) => {
-      console.log(charObj.dataValues.name);
-      charArr.push(charObj.dataValues);
-    });
-
-    // render characters here
-    // res.render("allcharacters", {charArr});
-  });
-});
 
 // Get all characters, render to JSON
 router.get('/api/characters', (req, res) => {
@@ -150,38 +130,72 @@ router.get('/api/characters/:id', (req, res) => {
 
 // not working
 
-router.post('/api/characters', (req, res) => {
-  const newChar = {
-    name: 'test',
-    hasShoes: true,
-    hasTools: false,
-    hasSpacesuit: false,
-    engineDestroyed: false,
-    canTrade: false,
-  };
+router.post("/api/characters/:name", function(req, res) {
+  console.log("Creating New Char")
+    const newChar = {
+        name: req.params.name,
+        hasShoes: true,
+        hasTools: false,
+        hasSpacesuit: false,
+        engineDestroyed: false,
+        canTrade: false
+    }
 
-  db.characters.create(newChar)
-    .then(() => {
-      res.redirect(307, '/api/characters');
-    })
-    .catch((err) => {
-      res.status(401).json(err);
-    });
+
+    db.activeChar.create(newChar)
+      .then(function() {
+        res.end()
+        console.log("New Character Added to DB!")
+      })
 });
 
-// Options API
-router.get('/api/options/:id', (req, res) => {
+// create character html
+router.get('/newChar', (req, res) => {
+  console.log('Request received for index...');
+  res.render('characterNew');
+});
+
+// Get all characters, render to HTML
+router.get('/characters', (req, res) => {
   // log in node terminal
-  console.log('Querying option = ', req.params.id);
-  db.options.findOne({
-    where: { id: req.params.id }
-  })
-    .then((results) => {
-      res.json(results);
+  console.log('Request received for initial encounter');
+  // find the encounter
+
+  db.activeChar.findAll().then((characters) => {
+    // send result to handlebars
+    console.log('Found Active Characters', characters.length);
+
+    const hbCharObj = {
+      chars: []
+    };
+
+    characters.forEach((charObj) => {
+      let curChar = {
+        name: charObj.dataValues.name,
+        id: charObj.dataValues.id,
+        currentEncounter: charObj.dataValues.currentEncounter
+      }
+
+      hbCharObj.chars.push(curChar);
     });
+    
+    console.log(hbCharObj)
+
+    res.render("characterSelect", hbCharObj);
+  });
 });
 
 
+// choices route
+router.get("/api/options/:id", function(req, res) {
+  // log in node terminal
 
+  db.options.findOne({ where: { id: req.params.id } })
+  .then(option => {
+      console.log(option);
+      res.json(option);
+  });
+
+}); 
 
 module.exports = router;
