@@ -35,7 +35,7 @@ function ajaxOptions(optId) {
 
 // updates character with next encounter
 function updateCharEncounter(charId, encId) {
-  console.log("Updating Char...")
+  console.log("Updating Char... ID: ", charId, " encId: ", encId)
   $.ajax({
     url: `/api/characters/${charId}/${encId}`,
     method: 'PUT'
