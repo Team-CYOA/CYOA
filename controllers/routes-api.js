@@ -34,8 +34,9 @@ module.exports = function(app) {
     results[0].dataValues.options.forEach((opt) => {
       let choiceObj = {
         optionText: (opt.dataValues.optionText),
-        id: (opt.dataValues.id)
+        id: (opt.dataValues.id),
       }
+      
 
       encounterObj.options.push(choiceObj)
     });
@@ -104,14 +105,15 @@ module.exports = function(app) {
   // update by char id that char's current event
   app.put('/api/characters/:charId/:encId', (req, res) => {
     console.log('Request received for updating character');
+    const stateChange = req.body.sc;
     // geet the activeChar then update it
     db.activeChar.findOne({
       where: { id: req.params.charId }
     })
     .then(character => {
-      console.log("Updating... ", character.dataValues)
       character.update({
-        currentEncounter: req.params.encId
+        currentEncounter: req.params.encId,
+        [`${stateChange}`]: !character[`${stateChange}`]
       });
     })
     .then(function() {
