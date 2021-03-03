@@ -17,12 +17,14 @@ function ajaxOptions(optId) {
   }).then((response) => {
     document.getElementById('btnContainer').classList.add('hideButton');
     consequenceText(response.consequence);
+    
 
     // get all info needed to update character's current event
+    const stateChange = response.stateChange;
     const charEl = document.getElementsByClassName("charId")
     const charId = charEl[0].id
     const newEnc = response.nextEncounter;
-    updateCharEncounter(charId, newEnc)
+    updateCharEncounter(charId, newEnc, stateChange)
 
 
     document.getElementById('nextEnc').addEventListener('click', () => {
@@ -34,11 +36,12 @@ function ajaxOptions(optId) {
 }
 
 // updates character with next encounter
-function updateCharEncounter(charId, encId) {
+function updateCharEncounter(charId, encId, stateChange) {
   console.log("Updating Char... ID: ", charId, " encId: ", encId)
   $.ajax({
     url: `/api/characters/${charId}/${encId}`,
-    method: 'PUT'
+    method: 'PUT',
+    data: {sc: `${stateChange}`},
   }).then(() => {
     console.log("Character updated...")
   })
