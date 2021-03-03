@@ -15,36 +15,24 @@ function ajaxChar(name) {
     $.ajax({
         url: `/api/characters/${name}`,
         method: "POST"
-    }).then(function(){ 
-        console.log("Clicked!")
+    }).then(function(data){ 
+        console.log("New Char Created!", data)
+    
+        // get values
+        const charId = data.id
+
+        // kill all buttons and header
+        const charArea = document.getElementById("characterCreate")
+        charArea.innerHTML = ''
+        // new header
+        const selectedChar = document.createElement("h1");
+        selectedChar.innerText = "Selected... " + name
+        charArea.appendChild(selectedChar)
+        // next adventure routed button
+        const nextAdventure = document.createElement("button");
+        nextAdventure.innerHTML = `<a href="/encounters/1/${charId}">Continue Adventure...</a>`
         
-        // now set up the "goto adventure" view
-        const charName = name
-       
-        $.ajax({
-            url: `/api/characters/`,
-            method: "GET"
-        }).then(function(res){
-            
-            console.log(res)
-            const charArr = [...res].reverse()
-            // get values
-            const charId = (charArr.find(o => o.name === name)).id
-
-            // kill all buttons and header
-            const charArea = document.getElementById("characterCreate")
-            charArea.innerHTML = ''
-            // new header
-            const selectedChar = document.createElement("h1");
-            selectedChar.innerText = "Selected... " + name
-            charArea.appendChild(selectedChar)
-            // next adventure routed button
-            const nextAdventure = document.createElement("button");
-            nextAdventure.innerHTML = `<a href="/encounters/1/${charId}">Continue Adventure...</a>`
-            
-            charArea.appendChild(nextAdventure)
-        })
-
+        charArea.appendChild(nextAdventure)
 
     })
 }
