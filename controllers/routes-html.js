@@ -53,9 +53,9 @@ module.exports = function(app) {
     results[0].dataValues.options.forEach((opt) => {
       let choiceObj = {
         optionText: (opt.dataValues.optionText),
-        id: (opt.dataValues.id)
+        id: (opt.dataValues.id),
+        stateChange: opt.stateChange
       }
-
       encounterObj.options.push(choiceObj)
     });
 
