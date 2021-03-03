@@ -26,10 +26,12 @@ function ajaxChar(name) {
         charArea.innerHTML = ''
         // new header
         const selectedChar = document.createElement("h1");
+        selectedChar.classList.add("encounterText");
         selectedChar.innerText = "Selected... " + name
         charArea.appendChild(selectedChar)
         // next adventure routed button
         const nextAdventure = document.createElement("button");
+        nextAdventure.classList.add("encounterText");
         nextAdventure.innerHTML = `<a href="/encounters/1/${charId}">Continue Adventure...</a>`
         startGameSound(nextAdventure)
         charArea.appendChild(nextAdventure)

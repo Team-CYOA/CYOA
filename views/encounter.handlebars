@@ -3,16 +3,16 @@
         <div class="column is-centered">
             <div class="column is-half">
 
-                <h1class="nav-link"> Encounter!</h1>
-                <p id="demo" class="nav-link">{{ this.encounterText }}</p>
-                <p id="consequence"></p>
+                <h1 class="encounterText"> Encounter!</h1>
+                <p id="demo" class="encounterText">{{ this.encounterText }}</p>
+                <p id="consequence" class="encounterText"></p>
                 <ul id='btnContainer' class="hideButton">
                     {{#each this.options }}
                     <button class="button is-medium is-full-length is-hovered is-rounded options optionBtn" id="{{this.id}}" stateChange="{{this.stateChange}}">{{this.optionText}}</button>
                     {{/each}}
                 </ul>
                 <div id ='nextButton' class='hideButton'>
-                <button class="button is-medium is-full-length is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
+                <button  class="button is-medium is-full-length is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
                 </div>
             </div>
         </div>
