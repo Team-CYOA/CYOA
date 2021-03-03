@@ -85,8 +85,8 @@ module.exports = function(app) {
       }
 
       db.activeChar.create(newChar)
-        .then(function() {
-          res.end()
+        .then(function(data) {
+          res.status(201).json(data)
           console.log("New Character Added to DB!")
         })
   });
