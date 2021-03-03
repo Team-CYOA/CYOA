@@ -31,10 +31,19 @@ function ajaxChar(name) {
         // next adventure routed button
         const nextAdventure = document.createElement("button");
         nextAdventure.innerHTML = `<a href="/encounters/1/${charId}">Continue Adventure...</a>`
-        
+        startGameSound(nextAdventure)
         charArea.appendChild(nextAdventure)
 
     })
 }
 
 createChar()
+
+
+function startGameSound(element) {
+    var audio = new Audio("/assets/sounds/gameStart.wav");
+
+    element.onclick = function() {
+        audio.play();
+    }
+}
