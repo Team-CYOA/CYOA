@@ -21,11 +21,6 @@ module.exports = function(app) {
   app.get('/encounters/:id/:charId', (req, res) => {
     console.log('Querying encounter ID = ', req.params.id);
 
-    if(req.params.id === -1) {
-      console.log("character finished game... do something here")
-      res.render('index')
-    }
-
     db.encounters.findAll({
       where: {
         id: req.params.id,
