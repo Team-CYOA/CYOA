@@ -27,7 +27,34 @@ Here are some instructions on installation.
 ## Usage
 
 How to use:
-        
+
+### Herokuo
+To start using this application right away, simply navigate to the following link:
+
+[heroku](heroku.com)
+
+### Git Clone
+To run this on your local PC, utlizing a local MySQL database, follow these steps:
+1. Clone the repository onto your local PC.
+2. Create a new schema in your MySQL database called "cyoa_db".
+3. Open an integrated terminal where the data was cloned to and run "npm i".
+4. Utlize the Sequelize-CLI-ReadMe file to migrate and seed your database.
+5. Initiate the server.js file in your terminal
+6. Load the application your browser.
+
+## How it Works
+
+### Express
+Express is a node.js library that allows 
+
+### Sequelize
+
+### Express-Handlebars
+
+### Public Assets
+
+### Animations
+
 ## Contributing
 
 If you'd like to make a contribution to CASTAWAY: Flight of the Phoenix (with content, new mechanics or art etc.) make a pull request with a detailed commit description of your contribution. 

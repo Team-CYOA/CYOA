@@ -3,11 +3,15 @@ function createChar() {
     const newCharBTN = document.querySelector("#createChar");
 
     newCharBTN.addEventListener("click", ()=> {
+        const audio = new Audio("/assets/sounds/gameStart.wav");
+        audio.play();
         
+
         const newCharInput = document.querySelector("#charName");
         const newCharName = newCharInput.value;
         
         ajaxChar(newCharName)
+
     });
 }
 
@@ -40,3 +44,8 @@ function ajaxChar(name) {
 }
 
 createChar()
+
+
+function startGameSound(element) {
+    
+}
