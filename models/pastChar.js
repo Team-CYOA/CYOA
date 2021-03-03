@@ -1,17 +1,16 @@
-'use strict';
 const {
-  Model, Sequelize, DataTypes
+  Model, DataTypes,
 } = require('sequelize');
 const sequelize = require('../config/connection');
-  class pastChar extends Model {
 
-   };
-  pastChar.init({
-    pastName: DataTypes.STRING,
-    result: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'pastChar',
-  });
+class pastChar extends Model {
+
+}
+pastChar.init({
+  pastName: DataTypes.STRING,
+}, {
+  sequelize,
+  modelName: 'pastChar',
+});
 
 module.exports = pastChar;

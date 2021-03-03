@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 const favicon = require('express-favicon');
 const sequelize = require('./config/connection');
-const routes = require('./controllers/controller.js');
 const db = require('./models');
 
 // Static file serving
@@ -22,13 +21,12 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-
 // port
 const PORT = 3000
 
-//route
-
-app.use(routes);
+//routes
+require('./controllers/routes-html.js')(app)
+require('./controllers/routes-api.js')(app)
 
 // sync with sql db and listen
 

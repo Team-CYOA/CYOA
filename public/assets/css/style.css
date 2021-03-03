@@ -145,9 +145,10 @@ body {
         font-family: 'Press Start 2P', cursive;
         color: white;
       }
-
+/* 
       button {
         font-family: 'Press Start 2P', cursive;
+<<<<<<< HEAD
       }
     .titleSc {
         font-family: 'Press Start 2P', cursive;
@@ -171,3 +172,10 @@ body {
     line-height: 1.0;
   letter-spacing: -0.03em;
       }
+=======
+      } */
+
+    .hideButton {
+        display: none;
+}
+>>>>>>> main

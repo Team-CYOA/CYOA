@@ -1,20 +1,25 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-
-
 <section class="section">
     <div class="container">
         <div class="column is-centered">
             <div class="column is-half">
-                <h1 class="nav-link"> CHAPTER 1 </h1>
+
+                <h1class="nav-link"> Encounter!</h1>
                 <p id="demo" class="nav-link">{{ this.encounterText }}</p>
-                <ul>
-                    {{#each this.choices }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded">{{this}}</button>
+                <p id="consequence"></p>
+                <ul id='btnContainer' class="hideButton">
+                    {{#each this.options }}
+                    <button class="button is-medium is-full-length is-hovered is-rounded options optionBtn" id="{{this.id}}">{{this.optionText}}</button>
                     {{/each}}
                 </ul>
+                <div id ='nextButton' class='hideButton'>
+                <button class="button is-medium is-full-length is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
+                </div>
             </div>
         </div>
     </div>
+    <!-- this is the character ID -->
+    <div id="{{this.charId}}" class="charId"></div>
 </section>
-<script src="./assets/js/encounterAnimation.js"></script>
+<script src="/assets/js/encounterAnimation.js"></script>
+<script src="/assets/js/buttons.js"></script>
 {{!-- DELETE THIS AT WILL --}}

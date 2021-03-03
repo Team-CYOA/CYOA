@@ -1,0 +1,16 @@
+<section class="section">
+    <div class="container">
+        <div class="column is-centered">
+            <div id="renderedChars" class="column is-half">
+                <h1> Characters! </h1>
+                <ul>
+                    {{#each this.chars}}
+                    <div id="{{this.id}}" class="charSelect" value="{{this.currentEncounter}}"><button class="button is-medium is-full-length is-hovered is-rounded">{{this.name}}</button></div>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="/assets/js/charSelect.js"></script>
