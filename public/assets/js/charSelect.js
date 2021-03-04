@@ -3,7 +3,6 @@
 function selectedChar() {
     const slectCharEls = document.getElementsByClassName("charSelect");
 
-
     for (let i = 0; i < slectCharEls.length; i++) {
         
         slectCharEls[i].onclick = function() {
@@ -26,8 +25,8 @@ function selectedChar() {
                 </div>
             `
 
-            const nextAdventure = document.getElementById("nextAdventure")
             // add onclick sound
+            const nextAdventure = document.getElementById("nextAdventure")
             startGameSound(nextAdventure)
         }
     }
