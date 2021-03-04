@@ -12,7 +12,15 @@ npx sequelize-cli init --force (this will override your config.json)
 
 ***Standard Migration Commands***
 
-Next, edit your config.json with your local db credentials.
+First, edit your config.json with your local db credentials.
+
+** Reset Your Database **
+
+Next, run these commands to drop and create your DB:
+
+npx sequelize-cli db:drop (this drops the DB specified in your config file)
+
+npx sequelize-cli db:create (this creates the DB specified in your config file)
 
 Then, run this command to migrate:
 

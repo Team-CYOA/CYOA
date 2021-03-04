@@ -84,12 +84,13 @@ module.exports = function(app) {
           engineDestroyed: false,
           canTrade: false
       }
-
+//comment
       db.activeChar.create(newChar)
         .then(function(data) {
           res.status(201).json(data)
-          console.log("New Character Added to DB!")
+          console.log("New Character Added to DB!")  
         })
+        .catch(err => res.status(500).json(err));
   });
 
   // cet options by id
@@ -104,22 +105,52 @@ module.exports = function(app) {
 
   // update by char id that char's current event
   app.put('/api/characters/:charId/:encId', (req, res) => {
-    console.log('Request received for updating character');
+    console.log('Request received for updating character with id = ', req.params.charId);
     const stateChange = req.body.sc;
     // geet the activeChar then update it
     db.activeChar.findOne({
       where: { id: req.params.charId }
     })
     .then(character => {
+      console.log(character)
       character.update({
         currentEncounter: req.params.encId,
         [`${stateChange}`]: !character[`${stateChange}`]
+      }).then(function() {
+        console.log("Update Char Complete")
+        res.status(202).json()
       });
     })
-    .then(function() {
-      console.log("Update Char Complete")
-      res.end()
-    });
+    
   });
 
+
+  // post character to "pastcharacters"
+  app.post("/api/pastcharacters/:charId", function(req, res) {
+    console.log("Creating New Char")
+      
+      db.activeChar.findOne({
+        where: { id: req.params.charId }
+      }).then((character) => {
+        const pastChar = {
+          pastName: character.dataValues.name
+        }
+
+        db.pastChar.create(pastChar)
+        .then(function(data) {
+          res.status(201).json(data)
+          console.log("Character Successfully Retired!")
+        })
+      })   
+  });
+
+  app.delete("/api/characters/:id", function(req, res) {
+    db.activeChar.destroy({
+      where: { id: req.params.id }
+    })
+    .then(deletedChar => {
+      console.log(`${deletedChar} has been delted from activeChars db`);
+      res.status(204).json(deletedChar)
+    });
+  })  
 }

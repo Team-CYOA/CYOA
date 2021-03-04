@@ -18,15 +18,16 @@ module.exports = function(app) {
   });
 
   // specific encounter, with charId
-  app.get('/encounters/:id/:charId', (req, res) => {
+  app.get('/encounters/:id/:charId', async (req, res) => {
     console.log('Querying encounter ID = ', req.params.id);
-
+    console.log('Querying Char ID =', req.params.charId);
+    const charID = req.params.charID
     if(req.params.id === -1) {
       console.log("character finished game... do something here")
       res.render('index')
     }
 
-    db.encounters.findAll({
+    const encounter = await db.encounters.findAll({
       where: {
         id: req.params.id,
       },
@@ -35,16 +36,20 @@ module.exports = function(app) {
         encounterId: req.params.id,
       },
     })
-      .then((results) => {
-        const encounterObj = buildEncounter(results);
-        // passes charId provided in route address back to next encounter
-        encounterObj.charId = req.params.charId
-        console.log("Returning next encounter...")
-        res.render('encounter', encounterObj);
-      });
-  });
 
-  function buildEncounter(results) {
+    const char = await db.activeChar.findOne({
+      where: {
+        id: req.params.charId,
+      }
+    })
+    const encounterObj = buildEncounter(encounter, char);
+    // passes charId provided in route address back to next encounter
+    encounterObj.charId = req.params.charId
+    console.log("Returning next encounter...")
+    res.render('encounter', encounterObj);
+      });
+
+  function buildEncounter(results, char) {
     const encounterObj = {
       encounterText: results[0].dataValues.encounterText,
       options: [],
@@ -54,11 +59,21 @@ module.exports = function(app) {
       let choiceObj = {
         optionText: (opt.dataValues.optionText),
         id: (opt.dataValues.id),
-        stateChange: opt.stateChange
+        stateChange: opt.stateChange,
+        checkState: opt.dataValues.checkState
       }
       encounterObj.options.push(choiceObj)
     });
-
+    encounterObj.options.forEach(el => {
+      if (el.checkState && el.checkState.indexOf('!') === -1 && char[el.checkState] === false) {
+        console.log('splicing positive check');
+        encounterObj.options.splice(el, 1);
+      } 
+      if (el.checkState && el.checkState.indexOf('!') === 0 && char[(el.checkState).substring(1)] === true) {
+        console.log('splicing negative check');
+        encounterObj.options.splice(el, 1);
+      } 
+    });
     return encounterObj;
   }
 
