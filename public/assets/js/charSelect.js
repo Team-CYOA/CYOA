@@ -22,10 +22,20 @@ function selectedChar() {
             // next adventure routed button
             const nextAdventure = document.createElement("button");
             nextAdventure.innerHTML = `<a href="/encounters/${encId}/${charId}">Continue Adventure...</a>`
-            
+            // add onclick sound
+            startGameSound(nextAdventure)
+            // send to DOM
             charArea.appendChild(nextAdventure)
         }
     }
 }
 
 selectedChar();
+
+function startGameSound(element) {
+    var audio = new Audio("/assets/sounds/gameStart.wav");
+
+    element.onclick = function() {
+        audio.play();
+    }
+}

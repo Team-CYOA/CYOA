@@ -18,6 +18,10 @@ function ajaxOptions(optId) {
     document.getElementById('btnContainer').classList.add('hideButton');
     consequenceText(response.consequence);
     
+    if (response.nextEncounter < 0) {
+      document.getElementById('endButton').classList.remove('hideButton');
+    }
+    
 
     // get all info needed to update character's current event
     const stateChange = response.stateChange;
@@ -25,7 +29,6 @@ function ajaxOptions(optId) {
     const charId = charEl[0].id
     const newEnc = response.nextEncounter;
     updateCharEncounter(charId, newEnc, stateChange)
-
 
     document.getElementById('nextEnc').addEventListener('click', () => {
       // console.log(`next encounter is ${response.nextEncounter}`);

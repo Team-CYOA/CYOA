@@ -12,9 +12,9 @@ Welcome to CASTAWAY: Flight of the Pheonix. This text-based game is a science-fi
       
 * [Usage](#usage)
       
+* [How it Works](#HowitWorks)
+
 * [Contributing](#contributing)
-      
-* [Tests](#tests)
       
 * [Questions](#questions)
 
@@ -26,17 +26,40 @@ Here are some instructions on installation.
       
 ## Usage
 
-How to use:
-        
+### Herokuo
+To start using this application right away, simply navigate to the following link:
+
+[heroku](heroku.com)
+
+### Git Clone
+To run this on your local PC, utlizing a local MySQL database, follow these steps:
+1. Clone the repository onto your local PC.
+2. Create a new schema in your MySQL database called "cyoa_db".
+3. Open an integrated terminal where the data was cloned to and run "npm i".
+4. Utlize the Sequelize-CLI-ReadMe file to migrate and seed your database.
+5. Initiate the server.js file in your terminal
+6. Load the application your browser.
+
+## How it Works
+
+### Express
+Express is a node.js library that creates a server. It utilizes routes which are accessed via the browser for this applicaiton. There are API and HTML routes:
+* API Routes: These routes deliver JSON formatted information from the database and are used in js related actions.
+* HTML routes: These routes deliver an actual HTML page to the user by way of express-handlebars
+
+### Sequelize
+
+### Express-Handlebars
+Handlebars are a tool that allows the delivery of dynamic pages to the user as well as allowing re-use of HTML 'templates'. It is possible to send user-specified information to the page, or information that is regularly updated, or conditional page elements, and even more.
+
+### Public Assets
+Public assets are defined in the express server script. These are how the HTML handlebars access front-end JS, style-sheets, and more.
+
+### Animations
+
 ## Contributing
 
 If you'd like to make a contribution to CASTAWAY: Flight of the Phoenix (with content, new mechanics or art etc.) make a pull request with a detailed commit description of your contribution. 
-      
-## Tests
-      
-To run tests, run the following command:
-
-Test
       
 ## Questions
 
