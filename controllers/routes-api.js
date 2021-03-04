@@ -84,12 +84,13 @@ module.exports = function(app) {
           engineDestroyed: false,
           canTrade: false
       }
-
+//comment
       db.activeChar.create(newChar)
         .then(function(data) {
           res.status(201).json(data)
-          console.log("New Character Added to DB!")
+          console.log("New Character Added to DB!")  
         })
+        .catch(err => res.status(500).json(err));
   });
 
   // cet options by id
