@@ -1,9 +1,9 @@
 {
     "development": {
-      "username": "ysz8apqfpluxcsbe",
-      "password": "bbb276x5qxksz88c",
-      "database": "f9ch08virkoqlbqs",
-      "host": "z5zm8hebixwywy9d.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+      "username": "root",
+      "password": "castaway",
+      "database": "CYOA_db",
+      "host": "127.0.0.1",
       "dialect": "mysql"
     },
     "test": {
