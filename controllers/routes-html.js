@@ -50,7 +50,6 @@ module.exports = function(app) {
       });
 
   function buildEncounter(results, char) {
-    //console.log('char is', char.dataValues);
     const encounterObj = {
       encounterText: results[0].dataValues.encounterText,
       options: [],
@@ -64,9 +63,7 @@ module.exports = function(app) {
         checkState: opt.dataValues.checkState
       }
       encounterObj.options.push(choiceObj)
-      //console.log('option datavalues is ', opt.dataValues);
     });
-    //console.log(encounterObj.options);
     encounterObj.options.forEach(el => {
       if (el.checkState && el.checkState.indexOf('!') === -1 && char[el.checkState] === false) {
         console.log('splicing positive check');
