@@ -43,7 +43,7 @@ function ajaxChar(name) {
 
         // add onclick sound
         const nextAdventure = document.getElementById("nextAdventure")
-
+        characterTools.startGameSound(nextAdventure);
 
         // hover over
         characterTools.hoverOverNextAdventure("nextAdventure")
