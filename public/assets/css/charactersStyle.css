@@ -23,3 +23,9 @@
 .charCreateButton {
     width: 100%;
 }
+
+.charImgWrapper {
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
