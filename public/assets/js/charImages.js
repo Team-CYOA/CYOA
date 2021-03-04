@@ -23,12 +23,12 @@ function createImg(text) {
         let b = (Math.floor(i * (myColorCodes.length/16))) * 20
         let c = (Math.floor(i ^ (myColorCodes.length/16))) * 50
         let d = Math.round(a * b * c) 
-        d = (Math.round(parseFloat(('0.' + String(d).substring(0, 3)))))
+        d = (Math.round(parseFloat(1.5 * ('0.' + String(d).substring(0, 3)))))
         colorBlock.style.backgroundColor = 'rgba(' + a + ',' + b + ',' + c + ',' + d + ')';
         colorWrapperTR.appendChild(colorBlock)
     }
 
-    
+
     //create duplicates
     colorWrapperTR.setAttribute("style", "height:80px; width:80px;display: flex;flex-wrap: wrap;");
     const colorWrapperBL = colorWrapperTR.cloneNode(true)
@@ -45,7 +45,7 @@ function createImg(text) {
     wrapperWrapper.appendChild(colorWrapperBR)
 
     
-    wrapperWrapper.setAttribute("style", "height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
+    wrapperWrapper.setAttribute("style", "background-color: white;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
 
     return wrapperWrapper
 }
@@ -55,5 +55,7 @@ function reverseChildren(parent) {
         parent.insertBefore(parent.childNodes[i], parent.firstChild);
     }
 }
+
+function hoverOverImg
 
 export { createImg }
