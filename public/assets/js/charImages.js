@@ -1,5 +1,5 @@
-function createImg(text) {
-    const myText = text
+function createImg(refNode) {
+    const myText = refNode.innerText
 
     let myColorCodes = []
 
@@ -45,9 +45,11 @@ function createImg(text) {
     wrapperWrapper.appendChild(colorWrapperBR)
 
     
-    wrapperWrapper.setAttribute("style", "background-color: white;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
+    wrapperWrapper.setAttribute("style", "background-color: black;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
+    wrapperWrapper.classList.add("charImgWrapper");
 
-    return wrapperWrapper
+    refNode.appendChild(wrapperWrapper)
+    console.log(refNode)
 }
 
 function reverseChildren(parent) {
@@ -55,7 +57,5 @@ function reverseChildren(parent) {
         parent.insertBefore(parent.childNodes[i], parent.firstChild);
     }
 }
-
-function hoverOverImg
 
 export { createImg }
