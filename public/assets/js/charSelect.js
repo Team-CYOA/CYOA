@@ -13,24 +13,25 @@ function selectedChar() {
             const charName = this.innerText
             console.log("value", encId)
             // kill all buttons and header
-            const charArea = document.getElementById("renderedChars")
+            const charArea = document.getElementById("characterSelectContainer")
             charArea.innerHTML = ''
-            // new header
-            const selectedChar = document.createElement("h1");
-            selectedChar.innerText = "Selected... " + charName
-            charArea.appendChild(selectedChar)
-            // next adventure routed button
-            const nextAdventure = document.createElement("button");
-            nextAdventure.innerHTML = `<a href="/encounters/${encId}/${charId}">Continue Adventure...</a>`
+            // new html
+            charArea.innerHTML = `
+                <div class="columns">
+                <div class="column is-four-fifths charSelect"><h1 class="encounterText"> Selected... ${charName} </h1></div>
+                </div>
+
+                <div class="columns">
+                <a href="/encounters/${encId}/${charId}" ><div id="nextAdventure" class="column is-four-fifths charSelect"><button class="button is-medium is-full-length is-fullwidth is-hovered is-rounded charButton" >Continue Adventure...</button></a></div>
+                </div>
+            `
+
+            const nextAdventure = document.getElementById("nextAdventure")
             // add onclick sound
             startGameSound(nextAdventure)
-            // send to DOM
-            charArea.appendChild(nextAdventure)
         }
     }
 }
-
-selectedChar();
 
 function startGameSound(element) {
     var audio = new Audio("/assets/sounds/gameStart.wav");
@@ -49,4 +50,6 @@ function hoverOverButtons(){
       });
 }
 
+// initializes on page load
 hoverOverButtons()
+selectedChar();
