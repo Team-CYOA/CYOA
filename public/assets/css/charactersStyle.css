@@ -1,0 +1,25 @@
+#characterSelectContainer {
+    text-align: center;
+}
+
+.charSelect {
+    width: 100%;
+}
+
+.charButton {
+    font-family: 'Press Start 2P', cursive;
+
+}
+
+.encounterText {
+    text-align: center;
+}
+
+.inputCharBox {
+    text-align: center;
+    font-size: 24px;
+}
+
+.charCreateButton {
+    width: 100%;
+}
