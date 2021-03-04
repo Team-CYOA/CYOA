@@ -39,3 +39,14 @@ function startGameSound(element) {
         audio.play();
     }
 }
+
+function hoverOverButtons(){
+    $(".charButton").hover(function(){
+        console.log("test")
+        $(this).css("background-color", "yellow");
+        }, function(){
+        $(this).css("background-color", "white");
+      });
+}
+
+hoverOverButtons()
