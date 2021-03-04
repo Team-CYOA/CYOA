@@ -26,7 +26,8 @@ function ajaxOptions(optId) {
 
     if (response.nextEncounter < 0) {
       document.getElementById('endButton').classList.remove('hideButton');
-
+      
+      
       // here we will add activeChar to pastChar via ajax, then delete from activeChar
       addToPastChar(charId)
     }

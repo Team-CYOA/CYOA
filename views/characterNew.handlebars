@@ -1,19 +1,47 @@
+<link rel="stylesheet" href="/assets/css/charactersStyle.css">
+
 <section id="characterCreate">
+
   <div class="field">
-  <h2 class="encounterText">Name</h2>
-  <div class="control">
-    <input id="charName" class="input" type="text" placeholder="Character Name">
+
+    <div class="columns">
+      <div class="column is-four-fifths">
+        <h2 class="encounterText">Enter your Character Name</h2>
+      </div>
+    </div>
+
+    <div class="columns">
+      <div class="column is-four-fifths">
+        <div class="control">
+          <input id="charName" class="input inputCharBox" type="text" placeholder="Character Name Here">
+        </div>
+      </div>
+    </div>
+
   </div>
+
+<div class="columns charCreateGroup">
+
+      <div class="column is-one-fifth">
+      </div>
+      <div class="column is-one-fifth">
+        <div class="control">
+          <button id="createChar" class="button charSelect charCreateButton charButton" class="encounterText">Start Game!</button>
+        </div>
+      </div>
+
+      <div class="column is-one-fifth">
+        <div class="control">
+          <a href="/"><button class="button charCreateButton charButton">Back</button></a>
+        </div>
+      </div>
+
 </div>
 
-<div class="field is-grouped">
-  <div class="control">
-    <button id="createChar" class="button is-link charSelect" class="encounterText">Start Game!</button>
-  </div>
-  <div class="control">
-    <a href="/"><button class="button is-link is-light" class="encounterText">Back</button></a>
-  </div>
-</div>
-</section>
-    <script src="/assets/js/characters.js"></script>
-    
+
+</section>    
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+
+<script src="/assets/js/charCreate.js" type="module"></script>

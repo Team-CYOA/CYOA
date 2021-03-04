@@ -1,16 +1,19 @@
-<section class="section">
-    <div class="container">
-        <div class="column is-centered">
-            <div id="renderedChars" class="column is-half">
-                <h1 class="encounterText"> Characters! </h1>
-                <ul>
-                    {{#each this.chars}}
-                    <div id="{{this.id}}" class="charSelect" value="{{this.currentEncounter}}"><button class="button is-medium is-full-length is-hovered is-rounded" >{{this.name}}</button></div>
-                    {{/each}}
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
+<link rel="stylesheet" href="/assets/css/charactersStyle.css">
 
-<script src="/assets/js/charSelect.js"></script>
+<container id="characterSelectContainer" class="pt-6">
+        <div class="columns">
+            <div class="column is-four-fifths charSelect"><h1 class="encounterText"> Select your Character! </h1></div>
+        </div>
+
+        {{#each this.chars}}
+            <div class="columns">
+                <div id="{{this.id}}" class="column is-four-fifths charSelect" value="{{this.currentEncounter}}"><button class="button is-medium is-full-length is-fullwidth is-hovered is-rounded charButton" >{{this.name}}</button></div>
+            </div>
+        {{/each}}
+
+</container>
+
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+    
+<script src="/assets/js/charSelect.js" type="module"></script>
