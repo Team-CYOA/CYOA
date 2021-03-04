@@ -10,7 +10,7 @@ function createImg(text) {
     }
 
 
-    const colorWrapper = document.createElement("div");
+    const colorWrapperTR = document.createElement("div");
     
     let myDivArr = [];
 
@@ -25,14 +25,35 @@ function createImg(text) {
         let d = Math.round(a * b * c) 
         d = (Math.round(parseFloat(('0.' + String(d).substring(0, 3)))))
         colorBlock.style.backgroundColor = 'rgba(' + a + ',' + b + ',' + c + ',' + d + ')';
-        colorWrapper.appendChild(colorBlock)
+        colorWrapperTR.appendChild(colorBlock)
     }
-    const colorWrapperRev = colorWrapper.cloneNode();
-    colorWrapper.setAttribute("style", "height:80px; width:80px;display: flex;flex-wrap: wrap;");
-    colorWrapperRev.setAttribute("style", "height:80px; width:80px;display: flex;flex-wrap: wrap-reverse;");
 
-    return [colorWrapper, colorWrapperRev]
+    
+    //create duplicates
+    colorWrapperTR.setAttribute("style", "height:80px; width:80px;display: flex;flex-wrap: wrap;");
+    const colorWrapperBL = colorWrapperTR.cloneNode(true)
+    const colorWrapperBR = colorWrapperTR.cloneNode(true)
+    reverseChildren(colorWrapperBR)
+    const colorWrapperTL = colorWrapperBR.cloneNode(true)
+    colorWrapperBL.setAttribute("style", "height:80px; width:80px;display: flex;flex-wrap: wrap-reverse;");
+    colorWrapperTL.setAttribute("style", "height:80px; width:80px;display: flex;flex-wrap: wrap-reverse;");
+    // create housing & append
+    const wrapperWrapper = document.createElement("div");
+    wrapperWrapper.appendChild(colorWrapperTL)
+    wrapperWrapper.appendChild(colorWrapperTR)
+    wrapperWrapper.appendChild(colorWrapperBL)
+    wrapperWrapper.appendChild(colorWrapperBR)
 
+    
+    wrapperWrapper.setAttribute("style", "height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
+
+    return wrapperWrapper
+}
+
+function reverseChildren(parent) {
+    for (var i = 1; i < parent.childNodes.length; i++){
+        parent.insertBefore(parent.childNodes[i], parent.firstChild);
+    }
 }
 
 export { createImg }

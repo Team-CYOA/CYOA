@@ -8,8 +8,7 @@ function selectedChar() {
 
     for (let i = 0; i < slectCharEls.length; i++) {
         const charImagesArr = createImg(slectCharEls[i].innerText)
-        slectCharEls[i].appendChild(charImagesArr[0])
-        slectCharEls[i].appendChild(charImagesArr[1])
+        slectCharEls[i].appendChild(charImagesArr)
 
         slectCharEls[i].onclick = function() {
             // get values
