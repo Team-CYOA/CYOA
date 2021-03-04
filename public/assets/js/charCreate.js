@@ -1,3 +1,5 @@
+import { characterTools } from './modules/characterTools.js'
+
 function createChar() {
 
     const newCharBTN = document.querySelector("#createChar");
@@ -41,36 +43,14 @@ function ajaxChar(name) {
 
         // add onclick sound
         const nextAdventure = document.getElementById("nextAdventure")
-        hoverOverNextAdventure("nextAdventure")
+
+
+        // hover over
+        characterTools.hoverOverNextAdventure("nextAdventure")
 
     })
 }
 
-function startGameSound(element) {
-    var audio = new Audio("/assets/sounds/gameStart.wav");
-
-    element.onclick = function() {
-        audio.play();
-    }
-}
-
-function hoverOverButtons(){
-    $(".charButton").hover(function(){
-        $(this).css("background-color", "yellow");
-        }, function(){
-        $(this).css("background-color", "white");
-      });
-}
-
-function hoverOverNextAdventure(button){
-    $(`#${button}`).hover(function(){
-        $(this).css("background-color", "red");
-        }, function(){
-        $(this).css("background-color", "white");
-      });
-}
-
-
 // initializes on page load
-hoverOverButtons()
+characterTools.hoverOverButtons()
 createChar()
