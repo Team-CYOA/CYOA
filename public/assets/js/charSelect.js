@@ -21,12 +21,13 @@ function selectedChar() {
                 </div>
 
                 <div class="columns">
-                <a href="/encounters/${encId}/${charId}" ><div id="nextAdventure" class="column is-four-fifths charSelect"><button class="button is-medium is-full-length is-fullwidth is-hovered is-rounded charButton" >Continue Adventure...</button></a></div>
+                <a href="/encounters/${encId}/${charId}" ><div class="column is-four-fifths charSelect"><button id="nextAdventure" class="button is-medium is-full-length is-fullwidth is-hovered is-rounded charButton" >Continue Adventure...</button></a></div>
                 </div>
             `
 
             // add onclick sound
             const nextAdventure = document.getElementById("nextAdventure")
+            hoverOverNextAdventure("nextAdventure")
             startGameSound(nextAdventure)
         }
     }
@@ -42,8 +43,15 @@ function startGameSound(element) {
 
 function hoverOverButtons(){
     $(".charButton").hover(function(){
-        console.log("test")
         $(this).css("background-color", "yellow");
+        }, function(){
+        $(this).css("background-color", "white");
+      });
+}
+
+function hoverOverNextAdventure(button){
+    $(`#${button}`).hover(function(){
+        $(this).css("background-color", "red");
         }, function(){
         $(this).css("background-color", "white");
       });
