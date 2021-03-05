@@ -81,6 +81,7 @@ function deleteFromActiveChar(charId){
 
 // fetch State
 
+// character Image
 
 import { createImg } from "./modules/charImages.js"
 
