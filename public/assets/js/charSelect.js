@@ -1,7 +1,7 @@
 import { characterTools } from './modules/characterTools.js'
 // this is for charSelector
 
-import { createImg } from "./charImages.js"
+import { createImg } from "./modules/charImages.js"
 
 function selectedChar() {
     const slectCharEls = document.getElementsByClassName("charSelect");
