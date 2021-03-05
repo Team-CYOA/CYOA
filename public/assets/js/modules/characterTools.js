@@ -8,9 +8,11 @@ export const characterTools = {
     },
     hoverOverButtons: () => {
         $(".charButton").hover(function(){
-            $(this).css("background-color", "yellow");
+                this.parentNode.getElementsByClassName("charImgWrapper")[0].setAttribute("style", "background-color: white;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
+                $(this).css("background-color", "yellow");
             }, function(){
-            $(this).css("background-color", "white");
+                this.parentNode.getElementsByClassName("charImgWrapper")[0].setAttribute("style", "background-color: black;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
+                $(this).css("background-color", "white");
           });
     },
     hoverOverNextAdventure: (button) => {
@@ -21,4 +23,5 @@ export const characterTools = {
           });
     }
 }
+
 

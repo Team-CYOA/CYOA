@@ -8,14 +8,16 @@
                 <p id="consequence" class="encounterText"></p>
                 <ul id='btnContainer' class="hideButton">
                     {{#each this.options }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded options optionBtn" id="{{this.id}}" stateChange="{{this.stateChange}}">{{this.optionText}}</button>
+                    <p class="button is-medium is-hovered is-rounded options optionBtn choices" id="{{this.id}}" stateChange="{{this.stateChange}}">
+                        {{this.optionText}}
+                        </p>
                     {{/each}}
                 </ul>
                 <div id ='nextButton' class='hideButton'>
-                <button  class="button is-medium is-full-length is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
+                <button  class="button is-medium is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
                 </div>
                 <div id ='endButton' class='hideButton'>
-                <button  class="button is-medium is-full-length is-hovered is-rounded options endBtn" id = 'gameOver' onclick = "window.location.href = '/credits'">Game Over</button>
+                <button  class="button is-medium is-hovered is-rounded options endBtn" id = 'gameOver' onclick = "window.location.href = '/credits'">Game Over</button>
                 </div>
             </div>
         </div>

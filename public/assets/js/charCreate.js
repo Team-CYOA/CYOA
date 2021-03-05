@@ -1,5 +1,7 @@
 import { characterTools } from './modules/characterTools.js'
 
+import { createImg } from "./charImages.js"
+
 function createChar() {
 
     const newCharBTN = document.querySelector("#createChar");
@@ -33,13 +35,16 @@ function ajaxChar(name) {
 
         charArea.innerHTML = `
                 <div class="columns">
-                <div class="column is-four-fifths charSelect"><h1 class="encounterText">${name}! Ready for action! </h1></div>
+                <div class="column is-four-fifths charSelect"><h1 class="encounterText"><div id="charNameLocation">${name}</div> Ready for action! </h1></div>
                 </div>
 
                 <div class="columns">
                 <a href="/encounters/1/${charId}" ><div class="column is-four-fifths charSelect"><button id="nextAdventure" class="button is-medium is-full-length is-fullwidth is-hovered is-rounded charButton" >Continue Adventure...</button></a></div>
                 </div>
             `
+
+        const charNameLocation = document.getElementById("charNameLocation")
+        createImg(charNameLocation)
 
         // add onclick sound
         const nextAdventure = document.getElementById("nextAdventure")
