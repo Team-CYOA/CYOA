@@ -39,7 +39,7 @@ module.exports = {
     {
       optionText: 'Not a problem! The warp belt is made of anti-matter, so it shouldn’t be too hard to find for the anti-matter-detector I always keep in my toolkit! (Search the woods for missing parts)',
       nextEncounter: 5,
-      consequence: 'Consequence: Armed with your trusty AMD, you stomp off into the dense foliage that surrounds the crash site.',
+      consequence: 'Armed with your trusty AMD, you stomp off into the dense foliage that surrounds the crash site.',
       encounterID: 2,
       checkState: 'hasTools',
       createdAt: new Date(),
