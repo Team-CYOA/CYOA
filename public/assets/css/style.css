@@ -146,9 +146,6 @@ html {
         color: white;
       }
  
-      /* button {
-        font-family: 'Press Start 2P', cursive;
-      } */
     .titleSc {
         font-family: 'Press Start 2P', cursive;
         color: white;
@@ -179,7 +176,7 @@ html {
 
 .encounterText {
   text-decoration: none;
-  font-size: 22px;
+  font-size: 15px;
   font-family: 'Press Start 2P', cursive;
   color: white;
   color: #FFF5EE;
@@ -211,4 +208,38 @@ html {
     word-break: break-word;
     height: 100%;
     width: 70vw;
+    margin: 2px;
 }
+
+.button.is-medium {
+  font-size: 15px;
+}
+
+#nextEnc {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+}
+
+#gameOver {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 540px) {
+  .choices {
+	padding-left: calc(1em + .25em);
+  padding-right: calc(1em + .25em);
+  margin: 4px;
+  border-radius: 0;
+  }
+  .button.is-medium {
+    font-size: .6rem;
+  }
+  .encounterText {
+    font-size: .7rem;
+  }
+  .button.is-rounded {
+    border-radius: 20px;
+}
+}
+
