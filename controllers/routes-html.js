@@ -67,11 +67,11 @@ module.exports = function(app) {
     encounterObj.options.forEach(el => {
       if (el.checkState && el.checkState.indexOf('!') === -1 && char[el.checkState] === false) {
         console.log('splicing positive check');
-        encounterObj.options.splice(el, 1);
+        encounterObj.options.splice(encounterObj.options.indexOf(el), 1);
       } 
       if (el.checkState && el.checkState.indexOf('!') === 0 && char[(el.checkState).substring(1)] === true) {
         console.log('splicing negative check');
-        encounterObj.options.splice(el, 1);
+        encounterObj.options.splice(encounterObj.options.indexOf(el), 1);
       } 
     });
     return encounterObj;
