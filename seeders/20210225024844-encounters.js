@@ -29,7 +29,13 @@ module.exports = {
       encounterText: 'You arrive in town. It is a a tough looking frontier town; saloons, loose carry restrictions, and lots of dust. You notice a few likely looking establishments- the only thing is to decide which store to try...',
       createdAt: new Date(),
       updatedAt: new Date(),
-    }]);
+    },
+    {
+      encounterText: 'You awaken on the shore of a large river set in an enormous floodplain. Though you are fortunate that you did not drown in the river, you still have no idea how long you were out, how long you drifted, or where your ship is now. Time to decide what to do next...',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+
+  }]);
   },
 
   down: async (queryInterface) => {

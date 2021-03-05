@@ -1,21 +1,31 @@
 <section class="section">
     <div class="container">
-        <div class="column is-centered">
-            <div class="column is-half">
+        <div class="columns is-centered">
+            <div class="column is-three-quarters">
 
-                <h1 class="encounterText"> Encounter!</h1>
-                <p id="demo" class="encounterText">{{ this.encounterText }}</p>
-                <p id="consequence" class="encounterText"></p>
+
+                <h1 class="encounterText has-text-centered mb-4"> Encounter!</h1>
+                <h1 id="charName" class="encounterText has-text-centered"> {{this.charName}}!</h1>
+
+                <div class="box is-rounded has-background-black-ter is-transparent">
+                    <p id="demo" class="encounterText">{{ this.encounterText }}</p>
+                    <p id="consequence" class="encounterText"></p>
+                </div>
+                
                 <ul id='btnContainer' class="hideButton">
                     {{#each this.options }}
-                    <button class="button is-medium is-full-length is-hovered is-rounded options optionBtn" id="{{this.id}}" stateChange="{{this.stateChange}}">{{this.optionText}}</button>
+                    <p class="button is-medium is-hovered is-rounded options optionBtn choices" id="{{this.id}}" stateChange="{{this.stateChange}}">
+                        {{this.optionText}}
+                        </p>
                     {{/each}}
                 </ul>
+
                 <div id ='nextButton' class='hideButton'>
-                <button  class="button is-medium is-full-length is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
+                <button  class="button is-medium is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
                 </div>
+                
                 <div id ='endButton' class='hideButton'>
-                <button  class="button is-medium is-full-length is-hovered is-rounded options endBtn" id = 'gameOver' onclick = "window.location.href = '/credits'">Game Over</button>
+                <button  class="button is-medium is-hovered is-rounded options endBtn" id = 'gameOver' onclick = "window.location.href = '/credits'">Game Over</button>
                 </div>
             </div>
         </div>
@@ -24,4 +34,4 @@
     <div id="{{this.charId}}" class="charId"></div>
 </section>
 <script src="/assets/js/encounterAnimation.js"></script>
-<script src="/assets/js/buttons.js"></script>
+<script src="/assets/js/buttons.js" type="module"></script>
