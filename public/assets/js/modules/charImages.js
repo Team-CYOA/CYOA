@@ -1,5 +1,3 @@
-import { characterTools } from './modules/characterTools.js'
-
 function createImg(refNode) {
     const myText = refNode.innerText
 
@@ -21,12 +19,12 @@ function createImg(refNode) {
 
         myDivArr.push(colorBlock); 
         colorBlock.setAttribute("style", "height:20px; width:20px;");
-        let a = (Math.floor(i / (myColorCodes.length/16))) * 10
+        let a = (Math.floor(i / (myColorCodes.length/16)))
         let b = (Math.floor(i * (myColorCodes.length/16))) * 20
         let c = (Math.floor(i ^ (myColorCodes.length/16))) * 50
         let d = Math.round(a * b * c) 
-        d = (Math.round(parseFloat(1.55 * ('0.' + String(d).substring(0, 3)))))
-        colorBlock.style.backgroundColor = 'rgba(' + a + ',' + b + ',' + c + ',' + d + ')';
+        let nd = (Math.round(parseFloat(1.35 * ('0.' + String(d).substring(0, 3)))))
+        colorBlock.style.backgroundColor = 'rgba(' + a + ',' + b + ',' + c + ',' + nd + ')';
         colorWrapperTR.appendChild(colorBlock)
     }
 
@@ -47,7 +45,7 @@ function createImg(refNode) {
     wrapperWrapper.appendChild(colorWrapperBR)
 
     
-    wrapperWrapper.setAttribute("style", "background-color: black;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
+    wrapperWrapper.setAttribute("style", "background-color: black;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;margin-left: auto;margin-right: auto;");
     wrapperWrapper.classList.add("charImgWrapper");
 
     refNode.appendChild(wrapperWrapper)

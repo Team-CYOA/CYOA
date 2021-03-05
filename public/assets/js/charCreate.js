@@ -1,6 +1,6 @@
 import { characterTools } from './modules/characterTools.js'
 
-import { createImg } from "./charImages.js"
+import { createImg } from "./modules/charImages.js"
 
 function createChar() {
 

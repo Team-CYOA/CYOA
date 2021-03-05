@@ -45,6 +45,7 @@ module.exports = function(app) {
     const encounterObj = buildEncounter(encounter, char);
     // passes charId provided in route address back to next encounter
     encounterObj.charId = req.params.charId
+    encounterObj.charName = char.dataValues.name
     console.log("Returning next encounter...")
     res.render('encounter', encounterObj);
       });
