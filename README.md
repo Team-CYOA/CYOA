@@ -5,6 +5,7 @@ https://opensource.org/licenses/MIT
 ## Description
 
 Welcome to CASTAWAY: Flight of the Pheonix. This text-based game is a science-fiction survival game based on the classic Choose Your Own Adventure stories. Stranded with your wrecked spaceship, you will have to rely on your wits and decision making to chart a course towards survival in CASTAWAY: Flight of the Pheonix!
+
       
 ## Table of Contents 
       
@@ -17,6 +18,8 @@ Welcome to CASTAWAY: Flight of the Pheonix. This text-based game is a science-fi
 * [Contributing](#contributing)
       
 * [Questions](#questions)
+
+* [Development Team](#team)
 
 * [License](#license)
       
@@ -57,6 +60,10 @@ Public assets are defined in the express server script. These are how the HTML h
 
 ### Animations
 
+### Demo
+
+![castaway demo](public/assets/images/castawayDemo.gif)
+
 ## Contributing
 
 If you'd like to make a contribution to CASTAWAY: Flight of the Phoenix (with content, new mechanics or art etc.) make a pull request with a detailed commit description of your contribution. 
@@ -64,6 +71,17 @@ If you'd like to make a contribution to CASTAWAY: Flight of the Phoenix (with co
 ## Questions
 
 For questions regarding this repo contact me at charlie.bateman117@gmail.com or visit my repository at https://github.com/Team-CYOA/CYOA
+
+## Team
+
+Charles Latrobe-Bateman: [Github](https://github.com/Clatrobe00), [E-Mail](charlie.bateman117@gmail.com).
+
+Erik Portillo: [Github](https://github.com/Shawnmflanigan), [E-Mail](erik.justin.portillo@gmail.com).
+
+Shawn Flanigan: [Github](https://github.com/rasputinforever), [E-Mail](shawnmflanigan@gmail.com).
+
+Steve Eliuth: [Github](https://github.com/Eliuth4k9), [E-Mail]( eh26steve@gmail.com). 
+
 
 ## License
 
