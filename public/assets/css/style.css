@@ -203,6 +203,14 @@ html {
   position: relative;
   padding: 3px 0;
 }
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 .choices {
     white-space: normal;
@@ -211,4 +219,32 @@ html {
     word-break: break-word;
     height: 100%;
     width: 70vw;
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 }
+=======
+=======
+>>>>>>> Stashed changes
+    margin: 2px;
+}
+
+
+@media only screen and (max-width: 540px) {
+  .choices {
+	padding-left: calc(1em + .25em);
+  padding-right: calc(1em + .25em);
+  margin: 2px;
+  border-radius: 0;
+  }
+  .button.is-medium {
+    font-size: .55rem;
+  }
+  .encounterText {
+    font-size: .7rem;
+  }
+}
+>>>>>>> Stashed changes
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
