@@ -46,7 +46,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      optionText: 'Option B - Screw stumbling through the woods! I’ll check the ship computer for a nearby town- better to just trade for a new belt. (Go to town)',
+      optionText: 'Screw stumbling through the woods! I’ll check the ship computer for a nearby town- better to just trade for a new belt. (Go to town)',
       nextEncounter: 6,
       consequence: 'You return to the ship and sure enough, there appears to be a small settlement within walking distance of your downed ship. Funny how that works out right? I mean it’s an entire planet, millions and millions of square miles, and yet you always come down near a settlement. You grab some fliff and head out.',
       stateChange: 'canTrade',
@@ -168,9 +168,9 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      optionText: 'You walked here with hardly any money! (Go to bar)',
+      optionText: 'It has been a rough day, I could just drown my sorrows... (Go to bar)',
       nextEncounter: -1,
-      consequence: 'Without anything to trade for new parts, you decide to go blow what you do have drinking whatever passes for beer around these parts. Your spaceship can always wait til tomorrow...',
+      consequence: 'Without anything particularly valuable to trade for new parts, you decide to go blow what you do have drinking whatever passes for beer around these parts. Your spaceship can always wait til tomorrow...',
       encounterID: 6,
       checkState: '!canTrade',
       createdAt: new Date(),
