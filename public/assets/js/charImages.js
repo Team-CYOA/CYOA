@@ -1,5 +1,3 @@
-import { characterTools } from './modules/characterTools.js'
-
 function createImg(refNode) {
     const myText = refNode.innerText
 
