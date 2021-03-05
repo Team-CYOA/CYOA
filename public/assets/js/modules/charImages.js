@@ -45,7 +45,7 @@ function createImg(refNode) {
     wrapperWrapper.appendChild(colorWrapperBR)
 
     
-    wrapperWrapper.setAttribute("style", "background-color: black;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;");
+    wrapperWrapper.setAttribute("style", "background-color: black;height:160px; width:160px;display: flex;flex-wrap: wrap-reverse;margin-left: auto;margin-right: auto;");
     wrapperWrapper.classList.add("charImgWrapper");
 
     refNode.appendChild(wrapperWrapper)

@@ -96,3 +96,8 @@ body {
 .text-box p i {
     margin: 0 5px;
 }
+
+.creditName {
+    margin-left: auto;
+    margin-right: auto;
+}
