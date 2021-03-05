@@ -6,11 +6,17 @@
     box-sizing: border-box;
 }
 
-.row {
-    max-width: 1170px;
-    margin: auto;
+.textC {
+    width: 300px;
+    /* display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex; */
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    flex-wrap: wrap;
 }
-.team-title {
+.team-something {
     flex-basis: 100%;
     max-width: 100%;
     margin-bottom: 70px;
@@ -35,10 +41,10 @@ body {
   }
 
 .wrapper {
-    width: 1200px;
-    display: -webkit-flex;
+    width: 900px;
+    /* display: -webkit-flex;
     display: -moz-flex;
-    display: -ms-flex;
+    display: -ms-flex; */
     display: flex;
     justify-content: center;
     align-items: center;
