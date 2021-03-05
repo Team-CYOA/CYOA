@@ -6,8 +6,12 @@
 
                 <h1 class="encounterText has-text-centered mb-4"> Encounter!</h1>
                 <h1 id="charName" class="encounterText has-text-centered"> {{this.charName}}!</h1>
-                <p id="demo" class="encounterText">{{ this.encounterText }}</p>
-                <p id="consequence" class="encounterText"></p>
+
+                <div class="box is-rounded has-background-black-ter is-transparent">
+                    <p id="demo" class="encounterText">{{ this.encounterText }}</p>
+                    <p id="consequence" class="encounterText"></p>
+                </div>
+                
                 <ul id='btnContainer' class="hideButton">
                     {{#each this.options }}
                     <p class="button is-medium is-hovered is-rounded options optionBtn choices" id="{{this.id}}" stateChange="{{this.stateChange}}">
@@ -15,9 +19,11 @@
                         </p>
                     {{/each}}
                 </ul>
+
                 <div id ='nextButton' class='hideButton'>
                 <button  class="button is-medium is-hovered is-rounded options nextBtn" id = 'nextEnc'>Next Encounter</button>
                 </div>
+                
                 <div id ='endButton' class='hideButton'>
                 <button  class="button is-medium is-hovered is-rounded options endBtn" id = 'gameOver' onclick = "window.location.href = '/credits'">Game Over</button>
                 </div>
