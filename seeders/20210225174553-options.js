@@ -187,9 +187,8 @@ module.exports = {
     {
       optionText: 'You almost miss it, but there is a thin plume of smoke rising just over a hill on the other side of the river. You could easily make it...',
       nextEncounter: -1,
-      consequence: 'You walk for hours, picking your way slowly along the stream. You are uncertain whether you were unconcious through the night, or if it is the same day, or if it is simply always daytime on this planet. Just as the shadows begin to lengthen, you see a town off in the distance. With no better option, you make for the settlement.',
+      consequence: 'You crest the hill and see grub farm, nestled cozily between several slime fields. You do your best to ignore the smell and approach the house. You are greeted by the many-limbed inhabitants and invited in. Despite having only two arms, you soon display your worth as an excellent bull-grub wrangler. You get a great tan and grow fat eating grub-burgers while your old spacesuit gathers dust in the closet of the spare room the farmers put you up in.',
       encounterID: 7,
-      checkState: 'hasSpacesuit',
       createdAt: new Date(),
       updatedAt: new Date(),
     }]);
