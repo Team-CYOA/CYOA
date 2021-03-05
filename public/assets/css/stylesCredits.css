@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: poppins;
     box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+    color: black;
+    font-size: 14px;
 }
 
 .textC {
@@ -100,4 +103,9 @@ body {
 .creditName {
     margin-left: auto;
     margin-right: auto;
+}
+
+.fa-github {
+    font-size: 64px;
+    color: white
 }
