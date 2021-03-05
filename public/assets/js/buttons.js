@@ -81,3 +81,8 @@ function deleteFromActiveChar(charId){
 
 // fetch State
 
+
+import { createImg } from "./modules/charImages.js"
+
+const creditsImgAreas = document.getElementById("charName");
+createImg(creditsImgAreas)

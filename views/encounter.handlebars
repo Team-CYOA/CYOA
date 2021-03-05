@@ -4,6 +4,7 @@
             <div class="column is-half">
 
                 <h1 class="encounterText"> Encounter!</h1>
+                <h1 id="charName" class="encounterText"> {{this.charName}}!</h1>
                 <p id="demo" class="encounterText">{{ this.encounterText }}</p>
                 <p id="consequence" class="encounterText"></p>
                 <ul id='btnContainer' class="hideButton">
@@ -26,4 +27,4 @@
     <div id="{{this.charId}}" class="charId"></div>
 </section>
 <script src="/assets/js/encounterAnimation.js"></script>
-<script src="/assets/js/buttons.js"></script>
+<script src="/assets/js/buttons.js" type="module"></script>
