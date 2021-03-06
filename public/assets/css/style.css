@@ -243,3 +243,9 @@ html {
 }
 }
 
+.box {
+  min-height: 30vh;
+  opacity: 0.75;
+  border-style: solid;
+  border-color: white;
+}

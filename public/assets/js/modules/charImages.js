@@ -9,22 +9,31 @@ function createImg(refNode) {
 
     }
 
-
+    // here, find out if i > myColorCodes.length: this lets us know not to call an index > length of that array
+    let j = Math.floor((16 / myColorCodes.length))
+    // extend array
+    const colorCodes = colorCodeArrExtendor(myColorCodes, j)
     const colorWrapperTR = document.createElement("div");
     
-    let myDivArr = [];
-
     for (let i = 0; i < 16; i++) {
+
         let colorBlock = document.createElement("div");
 
-        myDivArr.push(colorBlock); 
+        
+        // we need math to figure out of the char code in myColorCodes is > 255, which is the limit for RGBA. Similar to above:
+        // rounddown ( colorCode / 255 ) < will give us a number of 255s to sub from the code so that it essentially wraps around 255
+
+
         colorBlock.setAttribute("style", "height:20px; width:20px;");
-        let a = (Math.floor(i / (myColorCodes.length/16)))
-        let b = (Math.floor(i * (myColorCodes.length/16))) * 20
-        let c = (Math.floor(i ^ (myColorCodes.length/16))) * 50
-        let d = Math.round(a * b * c) 
-        let nd = (Math.round(parseFloat(1.35 * ('0.' + String(d).substring(0, 3)))))
-        colorBlock.style.backgroundColor = 'rgba(' + a + ',' + b + ',' + c + ',' + nd + ')';
+        let r = colorCodes[i] * (i + 1) * 0.1
+        let g = colorCodes[i + 1] * (i + 2) * 0.1
+        let b = colorCodes[i + 2] * (i + 3)  * 0.1
+
+        // opacity, 1 or 0, a "random" but predictable manner, just see if a controlled "random" val is odd/even
+        let a = Math.floor(r * g * b) % 2
+
+        colorBlock.style.backgroundColor = `rgba(${r}, ${g}, ${b}, ${a})`;
+        
         colorWrapperTR.appendChild(colorBlock)
     }
 
@@ -55,6 +64,16 @@ function reverseChildren(parent) {
     for (var i = 1; i < parent.childNodes.length; i++){
         parent.insertBefore(parent.childNodes[i], parent.firstChild);
     }
+}
+
+function colorCodeArrExtendor(arr, factor) {
+    for (let i = 0; i < factor; i++) {
+        
+        arr = arr.concat(arr);
+        
+    }
+
+    return arr
 }
 
 export { createImg }
