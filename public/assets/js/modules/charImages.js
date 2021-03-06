@@ -1,6 +1,6 @@
 function createImg(refNode) {
     const myText = refNode.innerText
-
+    console.log(refNode.innerText)
     let myColorCodes = []
 
     for (let i = 0; i < myText.length; i++) {
