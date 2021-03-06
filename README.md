@@ -52,6 +52,8 @@ Express is a node.js library that creates a server. It utilizes routes which are
 
 ### Sequelize
 
+Sequelize is a database management library. This application makes use of sequelize and the sequelize-cli (command line interface) to create and provide access to the Castaway database. Using the Sequelize-cli-readme.md file found in this repository, the user can setup their own command line interface to quickly create, migrate, and seed their local database.
+
 ### Express-Handlebars
 Handlebars are a tool that allows the delivery of dynamic pages to the user as well as allowing re-use of HTML 'templates'. It is possible to send user-specified information to the page, or information that is regularly updated, or conditional page elements, and even more.
 
