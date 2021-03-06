@@ -3,7 +3,7 @@ module.exports = {
     queryInterface.bulkInsert('options', [{
       optionText: 'I need to check the damage to my ship as quickly as possible. (Climb out the window of you ship)',
       nextEncounter: 2,
-      consequence: 'You drop down to the ground and pop the hood of your damaged ship. There’s a small fire burning smouldering and you try to quickly stomp it out with your feet. You are successful, but your shoes are completely melted- you have to discard them.',
+      consequence: 'You drop down to the ground and pop the hood of your damaged ship. There’s a small fire burning and you try to quickly stomp it out with your feet. You are successful, but your shoes are completely melted- you have to discard them.',
       stateChange: 'hasShoes',
       encounterID: 1,
       createdAt: new Date(),
@@ -100,7 +100,7 @@ module.exports = {
     {
       optionText: 'That ship has been nothing but trouble since the day you bought it off that shady looking guy from GalaxiesList, might as well just head to town to try and find another beater. (Go to town)',
       nextEncounter: 6,
-      consequence: 'Consequence: You head off in the rough direction of town, hoping nothing eats you along the way.',
+      consequence: 'You head off in the rough direction of town, hoping nothing eats you along the way.',
       encounterID: 4,
       createdAt: new Date(),
       updatedAt: new Date(),
