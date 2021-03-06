@@ -31,9 +31,6 @@ body {
 
 .wrapper {
     width: 900px;
-    /* display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,9 +57,6 @@ body {
 }
 
 .text-box {
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flex;
     display: flex;
     justify-content: center;
     align-items: center;
