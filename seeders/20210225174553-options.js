@@ -3,7 +3,7 @@ module.exports = {
     queryInterface.bulkInsert('options', [{
       optionText: 'I need to check the damage to my ship as quickly as possible. (Climb out the window of you ship)',
       nextEncounter: 2,
-      consequence: 'You drop down to the ground and pop the hood of your damaged ship. There’s a small fire burning smouldering and you try to quickly stomp it out with your feet. You are successful, but your shoes are completely melted- you have to discard them.',
+      consequence: 'You drop down to the ground and pop the hood of your damaged ship. There’s a small fire burning and you try to quickly stomp it out with your feet. You are successful, but your shoes are completely melted- you have to discard them.',
       stateChange: 'hasShoes',
       encounterID: 1,
       createdAt: new Date(),
@@ -39,14 +39,14 @@ module.exports = {
     {
       optionText: 'Not a problem! The warp belt is made of anti-matter, so it shouldn’t be too hard to find for the anti-matter-detector I always keep in my toolkit! (Search the woods for missing parts)',
       nextEncounter: 5,
-      consequence: 'Consequence: Armed with your trusty AMD, you stomp off into the dense foliage that surrounds the crash site.',
+      consequence: 'Armed with your trusty AMD, you stomp off into the dense foliage that surrounds the crash site.',
       encounterID: 2,
       checkState: 'hasTools',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
     {
-      optionText: 'Option B - Screw stumbling through the woods! I’ll check the ship computer for a nearby town- better to just trade for a new belt. (Go to town)',
+      optionText: 'Screw stumbling through the woods! I’ll check the ship computer for a nearby town- better to just trade for a new belt. (Go to town)',
       nextEncounter: 6,
       consequence: 'You return to the ship and sure enough, there appears to be a small settlement within walking distance of your downed ship. Funny how that works out right? I mean it’s an entire planet, millions and millions of square miles, and yet you always come down near a settlement. You grab some fliff and head out.',
       stateChange: 'canTrade',
@@ -100,7 +100,7 @@ module.exports = {
     {
       optionText: 'That ship has been nothing but trouble since the day you bought it off that shady looking guy from GalaxiesList, might as well just head to town to try and find another beater. (Go to town)',
       nextEncounter: 6,
-      consequence: 'Consequence: You head off in the rough direction of town, hoping nothing eats you along the way.',
+      consequence: 'You head off in the rough direction of town, hoping nothing eats you along the way.',
       encounterID: 4,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -168,9 +168,9 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      optionText: 'You walked here with hardly any money! (Go to bar)',
+      optionText: 'It has been a rough day, I could just drown my sorrows... (Go to bar)',
       nextEncounter: -1,
-      consequence: 'Without anything to trade for new parts, you decide to go blow what you do have drinking whatever passes for beer around these parts. Your spaceship can always wait til tomorrow...',
+      consequence: 'Without anything particularly valuable to trade for new parts, you decide to go blow what you do have drinking whatever passes for beer around these parts. Your spaceship can always wait til tomorrow...',
       encounterID: 6,
       checkState: '!canTrade',
       createdAt: new Date(),
