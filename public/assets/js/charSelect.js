@@ -22,7 +22,7 @@ function selectedChar() {
             // new html
             charArea.innerHTML = `
                 <div class="columns">
-                <div class="column is-four-fifths charSelect"><div class="encounterText">Selected...</div>  <p id="charNameLocation">${charName}</h1></div>
+                <div class="column is-four-fifths charSelect"><div class="encounterText">Selected...</div>  <p id="charNameLocation">${charName}</p></div>
                 </div>
 
                 <div class="columns">
