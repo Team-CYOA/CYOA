@@ -21,6 +21,8 @@ Welcome to CASTAWAY: Flight of the Pheonix. This text-based game is a science-fi
 
 * [Development Team](#team)
 
+* [Thanks!](#thanks)
+
 * [License](#license)
       
 ## Installation
@@ -84,6 +86,9 @@ Shawn Flanigan: [Github](https://github.com/rasputinforever), [E-Mail](shawnmfla
 
 Steve Eliuth: [Github](https://github.com/Eliuth4k9), [E-Mail]( eh26steve@gmail.com). 
 
+## Thanks
+
+Jef Drawbaugh @ [Cascadnac Sound](http://jef-drawbaugh.squarespace.com/) for the amazing original music.
 
 ## License
 
